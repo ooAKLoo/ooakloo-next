@@ -7,19 +7,19 @@
       {
         "title": "色彩属性解构",
         "items": ["详细的色彩方案", "单击色彩块自动复制色值", "双击色彩块进行选定", "布局可拖动调整位置"],
-        "mediaSrc": "/assets/products/colorOpus/color1.png",
+        "mediaSrc": "/assets/products/colorOpus/color1.webp",
         "isReverse": false
       },
       {
         "title": "图像色彩采样",
         "items": ["可拖拽上传图片进行色彩提取"],
-        "mediaSrc": "/assets/products/colorOpus/color2.png",
+        "mediaSrc": "/assets/products/colorOpus/color2.webp",
         "isReverse": true
       },
       {
         "title": "设置页面",
         "items": ["按需设定，避免页面冗杂"],
-        "mediaSrc": "/assets/products/colorOpus/color3.png",
+        "mediaSrc": "/assets/products/colorOpus/color3.webp",
         "isReverse": false
       }
     ]
@@ -32,19 +32,19 @@
       {
         "title": "Color Property Deconstruction",
         "items": ["Detailed color schemes", "Click on a color block to automatically copy its value", "Double-click on a color block to select it", "Draggable layout to adjust positions"],
-        "mediaSrc": "/assets/products/colorOpus/color1.png",
+        "mediaSrc": "/assets/products/colorOpus/color1.webp",
         "isReverse": false
       },
       {
         "title": "Image Color Sampling",
         "items": ["Drag and drop images to extract colors"],
-        "mediaSrc": "/assets/products/colorOpus/color2.png",
+        "mediaSrc": "/assets/products/colorOpus/color2.webp",
         "isReverse": true
       },
       {
         "title": "Settings Page",
         "items": ["Set as needed to avoid clutter"],
-        "mediaSrc": "/assets/products/colorOpus/color3.png",
+        "mediaSrc": "/assets/products/colorOpus/color3.webp",
         "isReverse": false
       }
     ]

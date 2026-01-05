@@ -1,17 +1,17 @@
 [
   {
-    "url": "/assets/software/oZen.png",
+    "url": "/assets/software/oZen.webp",
     "cnName": "偶意",
     "enName": "oZen",
     "cnSlogan": "每句话都是你的独特符号",
     "enSlogan": "Your words, your distinct symbol.",
     "date": "Coming Soon",
     "productInfo": "oZen",
-    "carouselImages": ["/assets/carousel/carousel-1.png"],
+    "carouselImages": ["/assets/carousel/carousel-1.webp"],
     "comingSoon": true
   },
   {
-    "url": "/assets/software/colorOpus.png",
+    "url": "/assets/software/colorOpus.webp",
     "cnName": "缤作",
     "enName": "colorOpus",
     "cnSlogan": "让作品，更出色",
@@ -20,7 +20,7 @@
     "productInfo": "colorOpus"
   },
   {
-    "url": "/assets/software/PasteOn.png",
+    "url": "/assets/software/PasteOn.webp",
     "cnName": "PasteOn",
     "enName": "PasteOn",
     "cnSlogan": "你的复制、粘贴『任意门』",
@@ -29,7 +29,7 @@
     "productInfo": "PasteOn"
   },
   {
-    "url": "/assets/software/ooott.png",
+    "url": "/assets/software/ooott.webp",
     "cnName": "偶途",
     "enName": "ooott",
     "cnSlogan": "生活无界 距离有序",
@@ -38,7 +38,7 @@
     "productInfo": "ooott"
   },
   {
-    "url": "/assets/software/oMeoo.png",
+    "url": "/assets/software/oMeoo.webp",
     "cnName": "偶墨",
     "enName": "oMeoo",
     "cnSlogan": "记偶思，用偶墨",

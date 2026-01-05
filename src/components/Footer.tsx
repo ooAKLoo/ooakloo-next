@@ -2,11 +2,11 @@ import Image from 'next/image';
 import type { Messages } from '@/messages';
 
 const socialLinks = [
-  { name: 'TikTok', icon: '/assets/icons/tiktok.png', url: 'https://www.tiktok.com/@user5757841605063' },
-  { name: 'YouTube', icon: '/assets/icons/youtube.png', url: 'https://www.youtube.com/channel/UCRCjs622BRMHknf4Cg0czTw' },
-  { name: 'Xiaohongshu', icon: '/assets/icons/xiaohongshu.png', url: 'https://www.xiaohongshu.com/user/profile/5e4125ff00000000010064fd' },
-  { name: 'Bilibili', icon: '/assets/icons/bilibili.png', url: 'https://space.bilibili.com/22541325/video' },
-  { name: 'GitHub', icon: '/assets/icons/github.png', url: 'https://github.com/ooAKLoo' },
+  { name: 'TikTok', icon: '/assets/icons/tiktok.webp', url: 'https://www.tiktok.com/@user5757841605063' },
+  { name: 'YouTube', icon: '/assets/icons/youtube.webp', url: 'https://www.youtube.com/channel/UCRCjs622BRMHknf4Cg0czTw' },
+  { name: 'Xiaohongshu', icon: '/assets/icons/xiaohongshu.webp', url: 'https://www.xiaohongshu.com/user/profile/5e4125ff00000000010064fd' },
+  { name: 'Bilibili', icon: '/assets/icons/bilibili.webp', url: 'https://space.bilibili.com/22541325/video' },
+  { name: 'GitHub', icon: '/assets/icons/github.webp', url: 'https://github.com/ooAKLoo' },
 ];
 
 interface FooterProps {
