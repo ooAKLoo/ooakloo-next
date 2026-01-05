@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- Home page -->
+  <url>
+    <loc>https://ooakloo.com/en</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ooakloo.com/en"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://ooakloo.com/cn"/>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://ooakloo.com/cn</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ooakloo.com/en"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://ooakloo.com/cn"/>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- About page -->
+  <url>
+    <loc>https://ooakloo.com/en/about</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ooakloo.com/en/about"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://ooakloo.com/cn/about"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ooakloo.com/cn/about</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ooakloo.com/en/about"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://ooakloo.com/cn/about"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Contact page -->
+  <url>
+    <loc>https://ooakloo.com/en/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ooakloo.com/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://ooakloo.com/cn/contact"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ooakloo.com/cn/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ooakloo.com/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://ooakloo.com/cn/contact"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Product pages -->
+  <url>
+    <loc>https://ooakloo.com/en/products/colorOpus</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ooakloo.com/en/products/colorOpus"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://ooakloo.com/cn/products/colorOpus"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ooakloo.com/cn/products/colorOpus</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ooakloo.com/en/products/colorOpus"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://ooakloo.com/cn/products/colorOpus"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://ooakloo.com/en/products/oMeoo</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ooakloo.com/en/products/oMeoo"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://ooakloo.com/cn/products/oMeoo"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ooakloo.com/cn/products/oMeoo</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ooakloo.com/en/products/oMeoo"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://ooakloo.com/cn/products/oMeoo"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://ooakloo.com/en/products/oZen</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ooakloo.com/en/products/oZen"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://ooakloo.com/cn/products/oZen"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ooakloo.com/cn/products/oZen</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ooakloo.com/en/products/oZen"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://ooakloo.com/cn/products/oZen"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://ooakloo.com/en/products/ooott</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ooakloo.com/en/products/ooott"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://ooakloo.com/cn/products/ooott"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ooakloo.com/cn/products/ooott</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ooakloo.com/en/products/ooott"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://ooakloo.com/cn/products/ooott"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://ooakloo.com/en/products/PasteOn</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ooakloo.com/en/products/PasteOn"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://ooakloo.com/cn/products/PasteOn"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ooakloo.com/cn/products/PasteOn</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ooakloo.com/en/products/PasteOn"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://ooakloo.com/cn/products/PasteOn"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+</urlset>

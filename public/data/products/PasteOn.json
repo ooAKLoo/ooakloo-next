@@ -1,0 +1,52 @@
+{
+  "cn": {
+    "appName": "PasteOn",
+    "downloadLink": "https://github.com/ooAKLoo/pasteOn/tags",
+    "introText": "嗨朋友,PasteOn是一款可以提升你复制、粘贴效率的工具。在快捷键的设定下你可以快速选择历史复制内容，同时在多个设备间会实时地同步你的当前复制内容。{{在后续的开发计划中我计划支持更多类型文件的无缝同步功能}}未完待续...... ",
+    "sections": [
+      {
+        "title": "快速访问复制历史",
+        "items": ["↑ ↓（默认）"],
+        "mediaSrc": "/assets/products/PasteOn/rollback.mp4",
+        "isReverse": false
+      },
+      {
+        "title": "多设备的无缝体验",
+        "items": ["在同一局域网下实时同步"],
+        "mediaSrc": "/assets/products/PasteOn/crossplatform.jpg",
+        "isReverse": true
+      },
+      {
+        "title": "有需要 才显示",
+        "items": ["Ctrl|Cmd + Shift + A（默认）"],
+        "mediaSrc": "/assets/products/PasteOn/show.mp4",
+        "isReverse": false
+      }
+    ]
+  },
+  "en": {
+    "appName": "PasteOn",
+    "downloadLink": "https://github.com/ooAKLoo/pasteOn/tags",
+    "introText": "Hey friend, PasteOn is a tool designed to boost your copy and paste efficiency. With quick key settings, you can swiftly select from your past copied content and sync your clipboard across multiple devices in real time. {{In my upcoming development plans, I aim to support seamless synchronization for more types of files.}} Stay tuned...",
+    "sections": [
+      {
+        "title": "Quick Access to Copy History",
+        "items": ["↑ ↓ (default)"],
+        "mediaSrc": "/assets/products/PasteOn/rollback.mp4",
+        "isReverse": false
+      },
+      {
+        "title": "Seamless Multi-Device Experience",
+        "items": ["Real-time sync under the same local network"],
+        "mediaSrc": "/assets/products/PasteOn/crossplatform.jpg",
+        "isReverse": true
+      },
+      {
+        "title": "Show Only When Needed",
+        "items": ["Ctrl|Cmd + Shift + A (default)"],
+        "mediaSrc": "/assets/products/PasteOn/show.mp4",
+        "isReverse": false
+      }
+    ]
+  }
+}

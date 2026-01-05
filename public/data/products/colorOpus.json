@@ -1,0 +1,52 @@
+{
+  "cn": {
+    "appName": "colorOpus",
+    "downloadLink": "https://github.com/ooAKLoo/colorOpus_pub/tags",
+    "introText": "嗨朋友,colorOpus是一款对色彩进行解构的工具。它可以给出详细的色彩属性和策略，方便你更轻松的为创作定义整套色彩方案。{{在后续的开发计划中我将会持续优化软件体验，并补充新的功能}}未完待续...... ",
+    "sections": [
+      {
+        "title": "色彩属性解构",
+        "items": ["详细的色彩方案", "单击色彩块自动复制色值", "双击色彩块进行选定", "布局可拖动调整位置"],
+        "mediaSrc": "/assets/products/colorOpus/color1.png",
+        "isReverse": false
+      },
+      {
+        "title": "图像色彩采样",
+        "items": ["可拖拽上传图片进行色彩提取"],
+        "mediaSrc": "/assets/products/colorOpus/color2.png",
+        "isReverse": true
+      },
+      {
+        "title": "设置页面",
+        "items": ["按需设定，避免页面冗杂"],
+        "mediaSrc": "/assets/products/colorOpus/color3.png",
+        "isReverse": false
+      }
+    ]
+  },
+  "en": {
+    "appName": "colorOpus",
+    "downloadLink": "https://github.com/ooAKLoo/colorOpus_pub/tags",
+    "introText": "Hey friend, colorOpus is a tool for deconstructing colors. It provides detailed color properties and strategies to help you easily define a complete color scheme for your creations. {{In my upcoming development plans, I will continue to optimize the software experience and add new features.}} Stay tuned...",
+    "sections": [
+      {
+        "title": "Color Property Deconstruction",
+        "items": ["Detailed color schemes", "Click on a color block to automatically copy its value", "Double-click on a color block to select it", "Draggable layout to adjust positions"],
+        "mediaSrc": "/assets/products/colorOpus/color1.png",
+        "isReverse": false
+      },
+      {
+        "title": "Image Color Sampling",
+        "items": ["Drag and drop images to extract colors"],
+        "mediaSrc": "/assets/products/colorOpus/color2.png",
+        "isReverse": true
+      },
+      {
+        "title": "Settings Page",
+        "items": ["Set as needed to avoid clutter"],
+        "mediaSrc": "/assets/products/colorOpus/color3.png",
+        "isReverse": false
+      }
+    ]
+  }
+}

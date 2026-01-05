@@ -1,0 +1,40 @@
+{
+  "cn": {
+    "appName": "偶途",
+    "downloadLink": "https://apps.apple.com/cn/app/%E5%81%B6%E9%80%94/id6479603418",
+    "introText": "嗨朋友,偶途是一款围绕地图进行软件服务的产品。在当前版本下它主要提供了基础的多点路径规划（导航），和运动数据记录（轨迹）两大板块的内容。{{在后续的开发计划中我计划拓展出第三个关键板块，同时根据大家的反馈，支持更多形式的运动数据记录，并且优化算法......}}未完待续...... ",
+    "sections": [
+      {
+        "title": "运动页",
+        "items": ["显示运动历史信息", "一键开启运动记录"],
+        "mediaSrc": "/assets/products/ooott/1.mp4",
+        "isReverse": false
+      },
+      {
+        "title": "路径规划页",
+        "items": ["显示历史搜索记录", "长按地图编辑点", "一键开启规划"],
+        "mediaSrc": "/assets/products/ooott/2.mp4",
+        "isReverse": true
+      }
+    ]
+  },
+  "en": {
+    "appName": "ooott",
+    "downloadLink": "https://apps.apple.com/au/app/ooott/id6479603418",
+    "introText": "Hey friend, ooott is a map-based service app. In its current version, it primarily offers basic multi-point route planning (navigation) and sports data recording (tracking) functionalities.{{In future development plans, I aim to expand with a third key section, support more types of sports data recording, and optimize algorithms...}}Stay tuned...",
+    "sections": [
+      {
+        "title": "Sports Page",
+        "items": ["Display sports history information", "One-click to start recording sports"],
+        "mediaSrc": "/assets/products/ooott/1.mp4",
+        "isReverse": false
+      },
+      {
+        "title": "Route Planning Page",
+        "items": ["Display history search records", "Long press on the map to edit points", "One-click to start planning"],
+        "mediaSrc": "/assets/products/ooott/2.mp4",
+        "isReverse": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "cn": {
+    "appName": "偶墨",
+    "downloadLink": "https://apps.apple.com/tw/app/%E5%81%B6%E5%A2%A8/id6472629160?platform=iphone",
+    "introText": "嗨朋友,偶墨的设计初衷是想要一款一打开就可以记东西的软件。我之前在使用 Notablity，但它更合适记笔记，小记的话层层目录进去就比较麻烦了。同时我还希望能够自带有语音输入，以及简约的编辑面板，这样在我记录的时候可以更加的专注。因此我设计了这款软件。{{在后续的开发计划中我计划实现语音存储，支持简单的手绘，支持tag的集合运算，接入LLM......}}未完待续......",
+    "sections": [
+      { "title": "主页面", "items": ["显示最近重要日期", "显示置顶&最近 小记", "显示年/月/日 进度环"], "mediaSrc": "/assets/products/oMeoo/1.jpg", "isReverse": false },
+      { "title": "重要日期记忆页面", "items": ["显示日期倒计时", "支持农历日期", "支持添加图片"], "mediaSrc": "/assets/products/oMeoo/2.mp4", "isReverse": true },
+      { "title": "笔记编辑页面", "items": ["支持笔记全属性搜索", "支持笔记富文本编辑", "笔记支持多tag管理"], "mediaSrc": "/assets/products/oMeoo/3.mp4", "isReverse": false },
+      { "title": "笔记tag视图", "items": [], "mediaSrc": "/assets/products/oMeoo/4.mp4", "isReverse": true },
+      { "title": "笔记阅读视图", "items": [], "mediaSrc": "/assets/products/oMeoo/5.mp4", "isReverse": false },
+      { "title": "笔记数据页面", "items": ["tag气泡图", "笔记频率图", "月度频率图"], "mediaSrc": "/assets/products/oMeoo/6.mp4", "isReverse": true },
+      { "title": "尘封笔记视图", "items": [], "mediaSrc": "/assets/products/oMeoo/7.mp4", "isReverse": false },
+      { "title": "笔记导入、导出页面", "items": [], "mediaSrc": "/assets/products/oMeoo/8.mp4", "isReverse": true }
+    ]
+  },
+  "en": {
+    "appName": "oMeoo",
+    "downloadLink": "https://apps.apple.com/au/app/omeoo/id6472629160?platform=iphone",
+    "introText": "Hey friend, the initial idea behind oMeoo was to create an app that lets you jot things down the moment you open it. I used to use Notability, which is great for note-taking but somewhat cumbersome for quick notes. I also wished for voice input support and a streamlined editing panel to stay more focused while jotting things down. Hence, I designed this app. {{In future updates, I plan to implement voice storage, support for simple sketches, tag set operations, and integration with LLMs...}}Stay tuned...",
+    "sections": [
+      { "title": "Home Page", "items": ["Display recent significant dates", "Highlight pinned & recent notes", "Show progress circles for year/month/day"], "mediaSrc": "/assets/products/oMeoo/1.jpg", "isReverse": false },
+      { "title": "Significant Dates Memory Page", "items": ["Display countdowns for dates", "Supports lunar calendar dates", "Allows adding pictures"], "mediaSrc": "/assets/products/oMeoo/2.mp4", "isReverse": true },
+      { "title": "Note Editing Page", "items": ["Supports comprehensive note search", "Rich text note editing", "Multi-tag management for notes"], "mediaSrc": "/assets/products/oMeoo/3.mp4", "isReverse": false },
+      { "title": "Note Tag View", "items": [], "mediaSrc": "/assets/products/oMeoo/4.mp4", "isReverse": true },
+      { "title": "Note Reading View", "items": [], "mediaSrc": "/assets/products/oMeoo/5.mp4", "isReverse": false },
+      { "title": "Note Data Page", "items": ["Tag bubble chart", "Note frequency chart", "Monthly frequency chart"], "mediaSrc": "/assets/products/oMeoo/6.mp4", "isReverse": true },
+      { "title": "Dusty Notes View", "items": [], "mediaSrc": "/assets/products/oMeoo/7.mp4", "isReverse": false },
+      { "title": "Note Import/Export Page", "items": [], "mediaSrc": "/assets/products/oMeoo/8.mp4", "isReverse": true }
+    ]
+  }
+}

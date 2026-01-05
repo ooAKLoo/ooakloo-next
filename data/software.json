@@ -1,0 +1,49 @@
+[
+  {
+    "url": "/assets/software/oZen.png",
+    "cnName": "偶意",
+    "enName": "oZen",
+    "cnSlogan": "每句话都是你的独特符号",
+    "enSlogan": "Your words, your distinct symbol.",
+    "date": "Coming Soon",
+    "productInfo": "oZen",
+    "carouselImages": ["/assets/carousel/carousel-1.png"],
+    "comingSoon": true
+  },
+  {
+    "url": "/assets/software/colorOpus.png",
+    "cnName": "缤作",
+    "enName": "colorOpus",
+    "cnSlogan": "让作品，更出色",
+    "enSlogan": "Color Your Creations",
+    "date": "Jun 13 2024",
+    "productInfo": "colorOpus"
+  },
+  {
+    "url": "/assets/software/PasteOn.png",
+    "cnName": "PasteOn",
+    "enName": "PasteOn",
+    "cnSlogan": "你的复制、粘贴『任意门』",
+    "enSlogan": "Your copy, paste Doraemon's Anywhere Door.",
+    "date": "Apr 17 2024",
+    "productInfo": "PasteOn"
+  },
+  {
+    "url": "/assets/software/ooott.png",
+    "cnName": "偶途",
+    "enName": "ooott",
+    "cnSlogan": "生活无界 距离有序",
+    "enSlogan": "Life Unlimited, Distances Organized.",
+    "date": "Apr 06 2024",
+    "productInfo": "ooott"
+  },
+  {
+    "url": "/assets/software/oMeoo.png",
+    "cnName": "偶墨",
+    "enName": "oMeoo",
+    "cnSlogan": "记偶思，用偶墨",
+    "enSlogan": "Capture quick thoughts with oMeoo.",
+    "date": "Mar 20 2024",
+    "productInfo": "oMeoo"
+  }
+]
