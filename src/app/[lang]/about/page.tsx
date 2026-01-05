@@ -73,8 +73,8 @@ const teamMembers = [
     roleEn: "Senior Developer",
     image: "/assets/teams/George.webp",
     hoverImage: "/assets/teams/George2.webp",
-    background: "12年互联网从业经历，目前在字节跳动工作。曾在腾讯王者荣耀团队担任客户端游戏开发，有过独立游戏创业和开发经验。",
-    backgroundEn: "12 years in tech, currently at ByteDance. Former game developer at Tencent Honor of Kings with indie game experience.",
+    background: "8年互联网从业经历，曾在字节跳动工作。曾在腾讯王者荣耀团队担任客户端游戏开发，有过独立游戏创业和开发经验。",
+    backgroundEn: "8 years in tech, formerly at ByteDance. Former game developer at Tencent Honor of Kings with indie game experience.",
     social: { linkedin: "#", twitter: "#", github: "#" },
   },
   {
