@@ -26,12 +26,13 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -H ${{ secrets.SERVER_HOST }} >> ~/.ssh/known_hosts
+
       - name: Deploy to server
-        uses: easingthemes/ssh-deploy@main
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          REMOTE_HOST: ${{ secrets.SERVER_HOST }}
-          REMOTE_USER: ${{ secrets.SERVER_USER }}
-          SOURCE: "out/"
-          TARGET: "/var/www/ooakloo"
-          ARGS: "-avz --delete"
+        run: |
+          scp -i ~/.ssh/deploy_key -r out/* ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:/var/www/ooakloo/
