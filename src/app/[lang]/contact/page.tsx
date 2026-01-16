@@ -1,8 +1,15 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { Orbit } from '@ooakloowj/orbit';
 import { type Locale } from '@/lib/i18n';
 import { getMessages } from '@/messages';
+
+// 初始化 Orbit SDK（关闭自动追踪，仅用于反馈收集）
+Orbit.configure({
+  appId: 'com.dongju.ooakloo',
+  autoTrack: false,
+});
 
 export default function ContactPage() {
   const [locale, setLocale] = useState<Locale>('en');
@@ -43,25 +50,15 @@ export default function ContactPage() {
     setIsSubmitting(true);
 
     try {
-      // Using Formspree for form submission
-      // Replace YOUR_FORM_ID with your actual Formspree form ID
-      const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          ...formData,
-          _subject: `[Join Us] New Contact Form Submission`,
-          type: 'join',
-        }),
+      // 使用 Orbit SDK 发送反馈
+      await Orbit.sendFeedback({
+        content: `[Join Us]\nName: ${formData.name}\nMessage: ${formData.message}`,
+        contact: formData.contact,
       });
 
-      if (response.ok) {
-        setSubmitSuccess(true);
-        setFormData({ name: '', contact: '', message: '' });
-        alert(messages.messageSentAlert);
-      } else {
-        throw new Error('Failed to submit');
-      }
+      setSubmitSuccess(true);
+      setFormData({ name: '', contact: '', message: '' });
+      alert(messages.messageSentAlert);
     } catch {
       alert(locale === 'cn' ? '发送失败，请稍后重试' : 'Failed to send. Please try again later.');
     } finally {

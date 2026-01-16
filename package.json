@@ -10,6 +10,7 @@
     "generate-icons": "node scripts/generate-icons.js"
   },
   "dependencies": {
+    "@ooakloowj/orbit": "^0.1.4",
     "lucide-react": "^0.562.0",
     "next": "16.1.1",
     "react": "19.2.3",
