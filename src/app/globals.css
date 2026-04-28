@@ -60,3 +60,15 @@ html {
   animation: fade-in 0.6s ease-out forwards;
   opacity: 0;
 }
+
+@keyframes carousel-progress {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
+.carousel-progress {
+  width: 0%;
+  animation-name: carousel-progress;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}

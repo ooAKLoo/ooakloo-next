@@ -21,19 +21,25 @@ export default function Header({ lang, messages }: HeaderProps) {
   const pathname = usePathname();
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      const offset = window.scrollY;
-      const docHeight = document.body.offsetHeight;
-      const winHeight = window.innerHeight;
-      const contentHeight = docHeight - winHeight;
-      const scrollRatio = contentHeight > 0 ? offset / contentHeight : 0;
-      const emojiIndex = Math.min(Math.floor(scrollRatio * emojis.length), emojis.length - 1);
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const offset = window.scrollY;
+        const docHeight = document.body.offsetHeight;
+        const winHeight = window.innerHeight;
+        const contentHeight = docHeight - winHeight;
+        const scrollRatio = contentHeight > 0 ? offset / contentHeight : 0;
+        const emojiIndex = Math.min(Math.floor(scrollRatio * emojis.length), emojis.length - 1);
 
-      setIsScrolled(offset > 80);
-      setEmoji(emojis[emojiIndex]);
+        setIsScrolled(offset > 80);
+        setEmoji(emojis[emojiIndex]);
+        ticking = false;
+      });
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 

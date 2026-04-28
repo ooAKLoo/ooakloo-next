@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import Image from 'next/image';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -12,53 +12,24 @@ interface CarouselProps {
   images: CarouselImage[];
 }
 
+const CHANGE_TIME = 6000;
+
 export default function Carousel({ images }: CarouselProps) {
   const [current, setCurrent] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
-  const [isTransitioning, setIsTransitioning] = useState(false);
-  const [progress, setProgress] = useState(0);
-  const changeTime = 6000;
 
   const handleNext = useCallback(() => {
-    if (isTransitioning) return;
-    setIsTransitioning(true);
     setCurrent((prev) => (prev + 1) % images.length);
-    setProgress(0);
-    setTimeout(() => setIsTransitioning(false), 700);
-  }, [images.length, isTransitioning]);
+  }, [images.length]);
 
   const handlePrev = useCallback(() => {
-    if (isTransitioning) return;
-    setIsTransitioning(true);
     setCurrent((prev) => (prev - 1 + images.length) % images.length);
-    setProgress(0);
-    setTimeout(() => setIsTransitioning(false), 700);
-  }, [images.length, isTransitioning]);
+  }, [images.length]);
 
   const goToSlide = (index: number) => {
-    if (isTransitioning || index === current) return;
-    setIsTransitioning(true);
+    if (index === current) return;
     setCurrent(index);
-    setProgress(0);
-    setTimeout(() => setIsTransitioning(false), 700);
   };
-
-  // Auto-play with progress
-  useEffect(() => {
-    if (isPaused) return;
-
-    const progressInterval = setInterval(() => {
-      setProgress((prev) => {
-        if (prev >= 100) {
-          handleNext();
-          return 0;
-        }
-        return prev + (100 / (changeTime / 50));
-      });
-    }, 50);
-
-    return () => clearInterval(progressInterval);
-  }, [isPaused, handleNext, current]);
 
   if (images.length === 0) return null;
 
@@ -86,6 +57,7 @@ export default function Carousel({ images }: CarouselProps) {
               fill
               className="object-cover"
               priority={index === 0}
+              loading={index === 0 ? 'eager' : 'lazy'}
               sizes="100vw"
             />
           </div>
@@ -123,11 +95,16 @@ export default function Carousel({ images }: CarouselProps) {
               }}
               aria-label={`Go to slide ${index + 1}`}
             >
-              {/* Progress fill for current slide */}
+              {/* Progress fill for current slide — CSS-driven, advances slide on animationend */}
               {index === current && (
                 <div
-                  className="absolute inset-y-0 left-0 bg-white rounded-full transition-all duration-100"
-                  style={{ width: `${progress}%` }}
+                  key={current}
+                  className="absolute inset-y-0 left-0 bg-white rounded-full carousel-progress"
+                  style={{
+                    animationDuration: `${CHANGE_TIME}ms`,
+                    animationPlayState: isPaused ? 'paused' : 'running',
+                  }}
+                  onAnimationEnd={handleNext}
                 />
               )}
             </button>
