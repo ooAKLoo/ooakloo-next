@@ -1,6 +1,7 @@
 'use client';
 
 import { useParams } from 'next/navigation';
+import { motion, MotionConfig, type Variants } from 'motion/react';
 import {
   HardDrive,
   Cpu,
@@ -18,6 +19,37 @@ import {
 
 const ACCENT = '#2563EB';
 const ACCENT_LIGHT = '#EFF6FF';
+
+const REVEAL_EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
+
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 24 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: REVEAL_EASE },
+  },
+};
+
+const stagger: Variants = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.08, delayChildren: 0.05 } },
+};
+
+const fadeUpItem: Variants = {
+  hidden: { opacity: 0, y: 18 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: REVEAL_EASE },
+  },
+};
+
+const cardHover = {
+  whileHover: { y: -3 },
+  whileTap: { scale: 0.985 },
+  transition: { type: 'spring' as const, stiffness: 400, damping: 28 },
+};
 
 type Locale = 'en' | 'cn';
 
@@ -368,24 +400,48 @@ const CONTENT: Record<Locale, PitchContent> = {
   },
 };
 
+const Reveal = ({
+  children,
+  className = '',
+  id,
+  delay = 0,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  id?: string;
+  delay?: number;
+}) => (
+  <motion.section
+    id={id}
+    className={className}
+    initial="hidden"
+    whileInView="show"
+    viewport={{ once: true, margin: '-80px' }}
+    variants={{
+      hidden: { opacity: 0, y: 24 },
+      show: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.6, ease: REVEAL_EASE, delay },
+      },
+    }}
+  >
+    {children}
+  </motion.section>
+);
+
 const Section = ({
   id,
   label,
   title,
   children,
-  delay = 0,
 }: {
   id?: string;
   label: string;
   title: string;
   children: React.ReactNode;
-  delay?: number;
 }) => (
-  <section
-    id={id}
-    className="bg-white rounded-3xl p-8 md:p-12 reveal"
-    style={{ '--reveal-delay': `${delay}s` } as React.CSSProperties}
-  >
+  <Reveal id={id} className="bg-white rounded-3xl p-8 md:p-12">
     <div
       className="text-[11px] font-semibold uppercase tracking-[0.25em] mb-3"
       style={{ color: ACCENT }}
@@ -396,16 +452,21 @@ const Section = ({
       {title}
     </h2>
     <div className="text-[15px] leading-relaxed text-neutral-600 space-y-4">{children}</div>
-  </section>
+  </Reveal>
 );
 
 const MetaCard = ({ label, value }: { label: string; value: string }) => (
-  <div className="bg-white rounded-2xl px-5 py-4">
+  <motion.div
+    variants={fadeUpItem}
+    whileHover={{ y: -2 }}
+    transition={{ type: 'spring', stiffness: 400, damping: 28 }}
+    className="bg-white rounded-2xl px-5 py-4"
+  >
     <div className="text-[10px] font-medium uppercase tracking-wider text-neutral-400 mb-1.5">
       {label}
     </div>
     <div className="text-[14px] font-medium text-neutral-700">{value}</div>
-  </div>
+  </motion.div>
 );
 
 const PositioningCard = ({
@@ -419,18 +480,24 @@ const PositioningCard = ({
   target: string;
   body: string;
 }) => (
-  <div className="bg-neutral-50 rounded-2xl p-6 flex flex-col gap-3">
-    <div
+  <motion.div
+    variants={fadeUpItem}
+    {...cardHover}
+    className="bg-neutral-50 rounded-2xl p-6 flex flex-col gap-3"
+  >
+    <motion.div
       className="w-10 h-10 rounded-xl flex items-center justify-center"
       style={{ backgroundColor: ACCENT_LIGHT, color: ACCENT }}
+      whileHover={{ rotate: -6, scale: 1.08 }}
+      transition={{ type: 'spring', stiffness: 500, damping: 18 }}
     >
       <Icon size={18} />
-    </div>
+    </motion.div>
     <div className="text-[13px] font-semibold text-neutral-800">
       {vsLabel} {target}
     </div>
     <div className="text-[14px] leading-relaxed text-neutral-600">{body}</div>
-  </div>
+  </motion.div>
 );
 
 const TeamCard = ({
@@ -442,13 +509,17 @@ const TeamCard = ({
   role: string;
   body: string;
 }) => (
-  <div className="bg-neutral-50 rounded-2xl p-6">
+  <motion.div
+    variants={fadeUpItem}
+    {...cardHover}
+    className="bg-neutral-50 rounded-2xl p-6"
+  >
     <div className="flex items-baseline gap-3 mb-3">
       <h3 className="text-[18px] font-semibold text-neutral-800">{name}</h3>
       <span className="text-[12px] text-neutral-400">{role}</span>
     </div>
     <p className="text-[14px] leading-relaxed text-neutral-600">{body}</p>
-  </div>
+  </motion.div>
 );
 
 type RoadmapStatus = 'completed' | 'in-progress' | 'next';
@@ -474,22 +545,36 @@ const RoadmapItem = ({
   const { Icon, color, bg } = meta[status];
 
   return (
-    <div className="bg-neutral-50 rounded-2xl p-6 flex flex-col gap-3">
+    <motion.div
+      variants={fadeUpItem}
+      {...cardHover}
+      className="bg-neutral-50 rounded-2xl p-6 flex flex-col gap-3"
+    >
       <div className="flex items-center justify-between">
         <span className="text-[10px] font-semibold uppercase tracking-wider text-neutral-400">
           {stage}
         </span>
-        <span
+        <motion.span
           className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-semibold"
           style={{ backgroundColor: bg, color }}
+          animate={
+            status === 'in-progress'
+              ? { scale: [1, 1.04, 1] }
+              : undefined
+          }
+          transition={
+            status === 'in-progress'
+              ? { duration: 1.6, repeat: Infinity, ease: 'easeInOut' }
+              : undefined
+          }
         >
-          <Icon size={11} />
+          <Icon size={11} className={status === 'in-progress' ? 'animate-spin' : ''} />
           {statusLabel}
-        </span>
+        </motion.span>
       </div>
       <h3 className="text-[15px] font-semibold text-neutral-800 leading-snug">{title}</h3>
       <p className="text-[13px] leading-relaxed text-neutral-600">{body}</p>
-    </div>
+    </motion.div>
   );
 };
 
@@ -499,273 +584,328 @@ export default function InnoxPage() {
   const t = CONTENT[lang];
 
   return (
-    <div className="min-h-screen bg-[#f8f8f8] py-10 md:py-16 px-4 md:px-6">
-      <div className="mx-auto max-w-4xl space-y-6">
+    <MotionConfig reducedMotion="user">
+      <div className="min-h-screen bg-[#f8f8f8] py-10 md:py-16 px-4 md:px-6">
+        <div className="mx-auto max-w-4xl space-y-6">
 
-        {/* Hero */}
-        <section
-          className="bg-white rounded-3xl p-8 md:p-14 reveal"
-          style={{ '--reveal-delay': '0.05s' } as React.CSSProperties}
-        >
-          <div className="flex items-center gap-2 mb-8">
-            <span
-              className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[11px] font-semibold"
-              style={{ backgroundColor: ACCENT_LIGHT, color: ACCENT }}
+          {/* Hero */}
+          <motion.section
+            initial="hidden"
+            animate="show"
+            variants={stagger}
+            className="bg-white rounded-3xl p-8 md:p-14"
+          >
+            <motion.div variants={fadeUpItem} className="flex items-center gap-2 mb-8">
+              <span
+                className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[11px] font-semibold"
+                style={{ backgroundColor: ACCENT_LIGHT, color: ACCENT }}
+              >
+                <Sparkles size={12} />
+                {t.badge}
+              </span>
+            </motion.div>
+
+            <motion.div variants={fadeUpItem} className="flex items-start gap-5 mb-6">
+              <motion.div
+                className="shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center"
+                style={{ backgroundColor: ACCENT_LIGHT, color: ACCENT }}
+                initial={{ opacity: 0, scale: 0.6, rotate: -12 }}
+                animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                transition={{ type: 'spring', stiffness: 300, damping: 18, delay: 0.15 }}
+                whileHover={{ rotate: -8, scale: 1.06 }}
+              >
+                <HardDrive size={26} />
+              </motion.div>
+              <div>
+                <h1 className="text-3xl md:text-5xl font-semibold text-neutral-800 leading-tight tracking-tight">
+                  {t.heroTitle}
+                </h1>
+                <p className="text-[15px] md:text-[17px] text-neutral-400 mt-2 font-medium">
+                  {t.heroSubtitle}
+                </p>
+              </div>
+            </motion.div>
+
+            <motion.p
+              variants={fadeUpItem}
+              className="text-[16px] md:text-[18px] leading-relaxed text-neutral-600 max-w-3xl"
             >
-              <Sparkles size={12} />
-              {t.badge}
-            </span>
-          </div>
+              {t.heroDesc}
+            </motion.p>
 
-          <div className="flex items-start gap-5 mb-6">
+            <motion.div
+              variants={fadeUp}
+              className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-10"
+            >
+              <MetaCard label={t.meta.team[0]} value={t.meta.team[1]} />
+              <MetaCard label={t.meta.stage[0]} value={t.meta.stage[1]} />
+            </motion.div>
+          </motion.section>
+
+          {/* Problem */}
+          <Section id="problem" label={t.problem.label} title={t.problem.title}>
+            {t.problem.body}
+          </Section>
+
+          {/* Solution */}
+          <Section id="solution" label={t.solution.label} title={t.solution.title}>
+            {t.solution.body}
+          </Section>
+
+          {/* Positioning */}
+          <Reveal className="bg-white rounded-3xl p-8 md:p-12">
             <div
-              className="shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center"
-              style={{ backgroundColor: ACCENT_LIGHT, color: ACCENT }}
+              className="text-[11px] font-semibold uppercase tracking-[0.25em] mb-3"
+              style={{ color: ACCENT }}
             >
-              <HardDrive size={26} />
+              {t.positioning.label}
             </div>
-            <div>
-              <h1 className="text-3xl md:text-5xl font-semibold text-neutral-800 leading-tight tracking-tight">
-                {t.heroTitle}
-              </h1>
-              <p className="text-[15px] md:text-[17px] text-neutral-400 mt-2 font-medium">
-                {t.heroSubtitle}
-              </p>
-            </div>
-          </div>
-
-          <p className="text-[16px] md:text-[18px] leading-relaxed text-neutral-600 max-w-3xl">
-            {t.heroDesc}
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-10">
-            <MetaCard label={t.meta.team[0]} value={t.meta.team[1]} />
-            <MetaCard label={t.meta.stage[0]} value={t.meta.stage[1]} />
-          </div>
-        </section>
-
-        {/* Problem */}
-        <Section id="problem" label={t.problem.label} title={t.problem.title} delay={0.1}>
-          {t.problem.body}
-        </Section>
-
-        {/* Solution */}
-        <Section id="solution" label={t.solution.label} title={t.solution.title} delay={0.15}>
-          {t.solution.body}
-        </Section>
-
-        {/* Positioning */}
-        <section
-          className="bg-white rounded-3xl p-8 md:p-12 reveal"
-          style={{ '--reveal-delay': '0.2s' } as React.CSSProperties}
-        >
-          <div
-            className="text-[11px] font-semibold uppercase tracking-[0.25em] mb-3"
-            style={{ color: ACCENT }}
-          >
-            {t.positioning.label}
-          </div>
-          <h2 className="text-2xl md:text-3xl font-semibold text-neutral-800 mb-8 leading-tight">
-            {t.positioning.title}
-          </h2>
-          <div className="grid md:grid-cols-3 gap-4">
-            <PositioningCard
-              icon={Cpu}
-              vsLabel={t.positioning.vsLabel}
-              target={t.positioning.cards[0].target}
-              body={t.positioning.cards[0].body}
-            />
-            <PositioningCard
-              icon={Cloud}
-              vsLabel={t.positioning.vsLabel}
-              target={t.positioning.cards[1].target}
-              body={t.positioning.cards[1].body}
-            />
-            <PositioningCard
-              icon={HardDrive}
-              vsLabel={t.positioning.vsLabel}
-              target={t.positioning.cards[2].target}
-              body={t.positioning.cards[2].body}
-            />
-          </div>
-        </section>
-
-        {/* Target Users */}
-        <section
-          className="bg-white rounded-3xl p-8 md:p-12 reveal"
-          style={{ '--reveal-delay': '0.25s' } as React.CSSProperties}
-        >
-          <div
-            className="text-[11px] font-semibold uppercase tracking-[0.25em] mb-3"
-            style={{ color: ACCENT }}
-          >
-            {t.users.label}
-          </div>
-          <h2 className="text-2xl md:text-3xl font-semibold text-neutral-800 mb-6 leading-tight">
-            {t.users.title}
-          </h2>
-          <ul className="space-y-3 text-[15px] leading-relaxed text-neutral-600">
-            {t.users.items.map((item, i) => (
-              <li key={i} className="flex gap-3">
-                <span className="mt-2 inline-block w-1.5 h-1.5 rounded-full shrink-0 bg-neutral-800" />
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        {/* Technology Direction */}
-        <section
-          className="bg-white rounded-3xl p-8 md:p-12 reveal"
-          style={{ '--reveal-delay': '0.3s' } as React.CSSProperties}
-        >
-          <div
-            className="text-[11px] font-semibold uppercase tracking-[0.25em] mb-3"
-            style={{ color: ACCENT }}
-          >
-            {t.tech.label}
-          </div>
-          <h2 className="text-2xl md:text-3xl font-semibold text-neutral-800 mb-8 leading-tight">
-            {t.tech.title}
-          </h2>
-          <div className="grid md:grid-cols-2 gap-4">
-            <div className="bg-neutral-50 rounded-2xl p-6">
-              <div className="flex items-center gap-3 mb-4">
-                <div
-                  className="w-9 h-9 rounded-xl flex items-center justify-center"
-                  style={{ backgroundColor: ACCENT_LIGHT, color: ACCENT }}
-                >
-                  <Cpu size={16} />
-                </div>
-                <h3 className="text-[15px] font-semibold text-neutral-800">{t.tech.hwHeading}</h3>
-              </div>
-              <p className="text-[14px] leading-relaxed text-neutral-600">{t.tech.hwBody}</p>
-            </div>
-            <div className="bg-neutral-50 rounded-2xl p-6">
-              <div className="flex items-center gap-3 mb-4">
-                <div
-                  className="w-9 h-9 rounded-xl flex items-center justify-center"
-                  style={{ backgroundColor: ACCENT_LIGHT, color: ACCENT }}
-                >
-                  <Smartphone size={16} />
-                </div>
-                <h3 className="text-[15px] font-semibold text-neutral-800">{t.tech.swHeading}</h3>
-              </div>
-              <p className="text-[14px] leading-relaxed text-neutral-600">{t.tech.swBody}</p>
-            </div>
-          </div>
-          <div
-            className="mt-4 rounded-2xl p-5 flex items-start gap-3"
-            style={{ backgroundColor: ACCENT_LIGHT }}
-          >
-            <Shield size={18} style={{ color: ACCENT }} className="shrink-0 mt-0.5" />
-            <p className="text-[14px] leading-relaxed" style={{ color: ACCENT }}>
-              <span className="font-semibold">{t.tech.longTermLabel}</span> {t.tech.longTermBody}
-            </p>
-          </div>
-        </section>
-
-        {/* Team */}
-        <section
-          className="bg-white rounded-3xl p-8 md:p-12 reveal"
-          style={{ '--reveal-delay': '0.35s' } as React.CSSProperties}
-        >
-          <div
-            className="text-[11px] font-semibold uppercase tracking-[0.25em] mb-3"
-            style={{ color: ACCENT }}
-          >
-            {t.team.label}
-          </div>
-          <h2 className="text-2xl md:text-3xl font-semibold text-neutral-800 mb-8 leading-tight">
-            {t.team.title}
-          </h2>
-          <div className="grid md:grid-cols-2 gap-4">
-            {t.team.members.map((m) => (
-              <TeamCard key={m.name} name={m.name} role={m.role} body={m.body} />
-            ))}
-          </div>
-        </section>
-
-        {/* Current Stage */}
-        <Section id="stage" label={t.stage.label} title={t.stage.title} delay={0.4}>
-          {t.stage.body}
-        </Section>
-
-        {/* Roadmap */}
-        <section
-          className="bg-white rounded-3xl p-8 md:p-12 reveal"
-          style={{ '--reveal-delay': '0.5s' } as React.CSSProperties}
-        >
-          <div
-            className="text-[11px] font-semibold uppercase tracking-[0.25em] mb-8"
-            style={{ color: ACCENT }}
-          >
-            {t.roadmap.label}
-          </div>
-          <div className="grid md:grid-cols-2 gap-3">
-            {t.roadmap.items.map((item, i) => (
-              <RoadmapItem
-                key={i}
-                stage={`${t.roadmap.stagePrefix} ${i + 1}`}
-                title={item.title}
-                status={item.status}
-                statusLabel={t.roadmap.statusLabels[item.status]}
-                body={item.body}
+            <h2 className="text-2xl md:text-3xl font-semibold text-neutral-800 mb-8 leading-tight">
+              {t.positioning.title}
+            </h2>
+            <motion.div
+              variants={stagger}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: '-60px' }}
+              className="grid md:grid-cols-3 gap-4"
+            >
+              <PositioningCard
+                icon={Cpu}
+                vsLabel={t.positioning.vsLabel}
+                target={t.positioning.cards[0].target}
+                body={t.positioning.cards[0].body}
               />
-            ))}
+              <PositioningCard
+                icon={Cloud}
+                vsLabel={t.positioning.vsLabel}
+                target={t.positioning.cards[1].target}
+                body={t.positioning.cards[1].body}
+              />
+              <PositioningCard
+                icon={HardDrive}
+                vsLabel={t.positioning.vsLabel}
+                target={t.positioning.cards[2].target}
+                body={t.positioning.cards[2].body}
+              />
+            </motion.div>
+          </Reveal>
+
+          {/* Target Users */}
+          <Reveal className="bg-white rounded-3xl p-8 md:p-12">
             <div
-              className="rounded-2xl p-6 flex items-center gap-3"
+              className="text-[11px] font-semibold uppercase tracking-[0.25em] mb-3"
+              style={{ color: ACCENT }}
+            >
+              {t.users.label}
+            </div>
+            <h2 className="text-2xl md:text-3xl font-semibold text-neutral-800 mb-6 leading-tight">
+              {t.users.title}
+            </h2>
+            <motion.ul
+              variants={stagger}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: '-40px' }}
+              className="space-y-3 text-[15px] leading-relaxed text-neutral-600"
+            >
+              {t.users.items.map((item, i) => (
+                <motion.li
+                  key={i}
+                  variants={{
+                    hidden: { opacity: 0, x: -12 },
+                    show: { opacity: 1, x: 0, transition: { duration: 0.4, ease: REVEAL_EASE } },
+                  }}
+                  className="flex gap-3"
+                >
+                  <span className="mt-2 inline-block w-1.5 h-1.5 rounded-full shrink-0 bg-neutral-800" />
+                  <span>{item}</span>
+                </motion.li>
+              ))}
+            </motion.ul>
+          </Reveal>
+
+          {/* Technology Direction */}
+          <Reveal className="bg-white rounded-3xl p-8 md:p-12">
+            <div
+              className="text-[11px] font-semibold uppercase tracking-[0.25em] mb-3"
+              style={{ color: ACCENT }}
+            >
+              {t.tech.label}
+            </div>
+            <h2 className="text-2xl md:text-3xl font-semibold text-neutral-800 mb-8 leading-tight">
+              {t.tech.title}
+            </h2>
+            <motion.div
+              variants={stagger}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: '-60px' }}
+              className="grid md:grid-cols-2 gap-4"
+            >
+              <motion.div
+                variants={fadeUpItem}
+                {...cardHover}
+                className="bg-neutral-50 rounded-2xl p-6"
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <motion.div
+                    className="w-9 h-9 rounded-xl flex items-center justify-center"
+                    style={{ backgroundColor: ACCENT_LIGHT, color: ACCENT }}
+                    whileHover={{ rotate: -8, scale: 1.08 }}
+                    transition={{ type: 'spring', stiffness: 500, damping: 18 }}
+                  >
+                    <Cpu size={16} />
+                  </motion.div>
+                  <h3 className="text-[15px] font-semibold text-neutral-800">{t.tech.hwHeading}</h3>
+                </div>
+                <p className="text-[14px] leading-relaxed text-neutral-600">{t.tech.hwBody}</p>
+              </motion.div>
+              <motion.div
+                variants={fadeUpItem}
+                {...cardHover}
+                className="bg-neutral-50 rounded-2xl p-6"
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <motion.div
+                    className="w-9 h-9 rounded-xl flex items-center justify-center"
+                    style={{ backgroundColor: ACCENT_LIGHT, color: ACCENT }}
+                    whileHover={{ rotate: 8, scale: 1.08 }}
+                    transition={{ type: 'spring', stiffness: 500, damping: 18 }}
+                  >
+                    <Smartphone size={16} />
+                  </motion.div>
+                  <h3 className="text-[15px] font-semibold text-neutral-800">{t.tech.swHeading}</h3>
+                </div>
+                <p className="text-[14px] leading-relaxed text-neutral-600">{t.tech.swBody}</p>
+              </motion.div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ duration: 0.5, delay: 0.2, ease: REVEAL_EASE }}
+              className="mt-4 rounded-2xl p-5 flex items-start gap-3"
               style={{ backgroundColor: ACCENT_LIGHT }}
             >
-              <Wrench size={18} style={{ color: ACCENT }} className="shrink-0" />
-              <p
-                className="text-[13px] leading-relaxed font-medium"
-                style={{ color: ACCENT }}
-              >
-                {t.roadmap.cta}
+              <Shield size={18} style={{ color: ACCENT }} className="shrink-0 mt-0.5" />
+              <p className="text-[14px] leading-relaxed" style={{ color: ACCENT }}>
+                <span className="font-semibold">{t.tech.longTermLabel}</span> {t.tech.longTermBody}
               </p>
+            </motion.div>
+          </Reveal>
+
+          {/* Team */}
+          <Reveal className="bg-white rounded-3xl p-8 md:p-12">
+            <div
+              className="text-[11px] font-semibold uppercase tracking-[0.25em] mb-3"
+              style={{ color: ACCENT }}
+            >
+              {t.team.label}
             </div>
-          </div>
-        </section>
+            <h2 className="text-2xl md:text-3xl font-semibold text-neutral-800 mb-8 leading-tight">
+              {t.team.title}
+            </h2>
+            <motion.div
+              variants={stagger}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: '-60px' }}
+              className="grid md:grid-cols-2 gap-4"
+            >
+              {t.team.members.map((m) => (
+                <TeamCard key={m.name} name={m.name} role={m.role} body={m.body} />
+              ))}
+            </motion.div>
+          </Reveal>
 
-        {/* Vision */}
-        <section
-          className="rounded-3xl p-10 md:p-14 text-center reveal"
-          style={{ backgroundColor: '#1f2937', '--reveal-delay': '0.55s' } as React.CSSProperties}
-        >
-          <div
-            className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[11px] font-semibold mb-6"
-            style={{ backgroundColor: 'rgba(255,255,255,0.1)', color: '#A5B4FC' }}
+          {/* Current Stage */}
+          <Section id="stage" label={t.stage.label} title={t.stage.title}>
+            {t.stage.body}
+          </Section>
+
+          {/* Roadmap */}
+          <Reveal className="bg-white rounded-3xl p-8 md:p-12">
+            <div
+              className="text-[11px] font-semibold uppercase tracking-[0.25em] mb-8"
+              style={{ color: ACCENT }}
+            >
+              {t.roadmap.label}
+            </div>
+            <motion.div
+              variants={stagger}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, margin: '-60px' }}
+              className="grid md:grid-cols-2 gap-3"
+            >
+              {t.roadmap.items.map((item, i) => (
+                <RoadmapItem
+                  key={i}
+                  stage={`${t.roadmap.stagePrefix} ${i + 1}`}
+                  title={item.title}
+                  status={item.status}
+                  statusLabel={t.roadmap.statusLabels[item.status]}
+                  body={item.body}
+                />
+              ))}
+              <motion.div
+                variants={fadeUpItem}
+                className="rounded-2xl p-6 flex items-center gap-3"
+                style={{ backgroundColor: ACCENT_LIGHT }}
+              >
+                <motion.span
+                  animate={{ rotate: [0, -8, 8, -4, 0] }}
+                  transition={{ duration: 2.4, repeat: Infinity, repeatDelay: 1.6, ease: 'easeInOut' }}
+                  className="shrink-0 inline-flex"
+                >
+                  <Wrench size={18} style={{ color: ACCENT }} />
+                </motion.span>
+                <p
+                  className="text-[13px] leading-relaxed font-medium"
+                  style={{ color: ACCENT }}
+                >
+                  {t.roadmap.cta}
+                </p>
+              </motion.div>
+            </motion.div>
+          </Reveal>
+
+          {/* Vision */}
+          <motion.section
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.7, ease: REVEAL_EASE }}
+            className="rounded-3xl p-10 md:p-14 text-center relative overflow-hidden"
+            style={{ backgroundColor: '#1f2937' }}
           >
-            <Users size={12} />
-            {t.vision.label}
-          </div>
-          <p className="text-2xl md:text-3xl font-semibold text-white leading-snug max-w-3xl mx-auto">
-            {t.vision.sentence}
-          </p>
-        </section>
+            <motion.div
+              aria-hidden
+              className="absolute -inset-1 opacity-30 pointer-events-none"
+              style={{
+                background:
+                  'radial-gradient(60% 50% at 50% 0%, rgba(147,197,253,0.35), transparent 70%)',
+              }}
+              animate={{ opacity: [0.2, 0.4, 0.2] }}
+              transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+            />
+            <div
+              className="relative inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[11px] font-semibold mb-6"
+              style={{ backgroundColor: 'rgba(255,255,255,0.1)', color: '#A5B4FC' }}
+            >
+              <Users size={12} />
+              {t.vision.label}
+            </div>
+            <p className="relative text-2xl md:text-3xl font-semibold text-white leading-snug max-w-3xl mx-auto">
+              {t.vision.sentence}
+            </p>
+          </motion.section>
 
-        {/* Footer */}
-        <div className="text-center text-[12px] text-neutral-400 pt-4 pb-8">{t.footer}</div>
+          {/* Footer */}
+          <div className="text-center text-[12px] text-neutral-400 pt-4 pb-8">{t.footer}</div>
+        </div>
       </div>
-
-      <style jsx global>{`
-        @keyframes innox-reveal {
-          from {
-            opacity: 0;
-            transform: translateY(16px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        .reveal {
-          opacity: 0;
-          animation: innox-reveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-          animation-delay: var(--reveal-delay, 0s);
-        }
-      `}</style>
-    </div>
+    </MotionConfig>
   );
 }
