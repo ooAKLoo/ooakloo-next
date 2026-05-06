@@ -756,7 +756,10 @@ export default function InnoxDossierPage() {
               <Strong>软件:</Strong> iOS、macOS 客户端核心完成,设备连接、文件管理、媒体播放主流程跑通,处于体验打磨阶段。
             </p>
             <p>
-              <Strong>硬件:</Strong> 自研 PCB 多版迭代,目前在做底层性能调优(无线吞吐、功耗、稳定性)。
+              <Strong>硬件:</Strong> PCB 开始原理图设计。
+            </p>
+            <p>
+              <Strong>嵌入式:</Strong> 目前在做底层性能调优(长续航、高稳定、快启动、快传输)。
             </p>
             <p>
               <Strong>验证:</Strong> 在咖啡馆等真实场景做小规模访谈,部分访谈直接转化为意向订单,初步证明问题真实且有人愿意付费。
