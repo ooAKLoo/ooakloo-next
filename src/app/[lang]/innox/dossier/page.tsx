@@ -394,8 +394,9 @@ export default function InnoxDossierPage() {
           <SubTitle>苹果数据视角 · 大存储用户群体真实存在</SubTitle>
           <Prose>
             <p>
-              结合苹果的产品节奏:对市场规模小的产品(iPad mini、小尺寸 iPhone),它更新频次少甚至停产。
-              但<Strong>大存储版本</Strong>从 iPhone 15 起每代都做。我们理解,这意味着大存储用户群体真实且体量够大。
+              苹果是全球对消费电子市场理解最深、用户数据最完整的公司,它的产品节奏本身就是一份市场信号。对市场规模小的产品(iPad
+              mini、小尺寸 iPhone),它更新频次少甚至停产;但<Strong>大存储版本</Strong>从 iPhone 15
+              起每代都做。我们理解,这意味着大存储用户群体真实存在,且体量足以让苹果每代都不放弃。
             </p>
           </Prose>
 
@@ -651,6 +652,85 @@ export default function InnoxDossierPage() {
                 <p className="text-[12px] leading-relaxed text-neutral-600">{s.body}</p>
               </div>
             ))}
+          </div>
+
+          <SubTitle>③ 公开内容里的市场信号</SubTitle>
+          <Prose>
+            <p>
+              我们没有只靠自己的访谈下判断,也持续在公开内容平台上观察用户的真实抱怨与诉求 —— 这些信号印证了目标人群真实存在、且对现有方案不满意。
+            </p>
+          </Prose>
+
+          <div className="bg-neutral-50 rounded-2xl p-5 mt-4">
+            <div className="text-[13px] font-semibold text-neutral-800 mb-1">
+              信号 A · KOL 换机:两小时还没同步完
+            </div>
+            <p className="text-[12px] leading-relaxed text-neutral-600 mb-3">
+              主流自媒体博主每年都换最新款大容量 iPhone,"换机数据同步"几乎是公开吐槽的高频隐痛。以 B 站
+              <Strong>艾叔 Albert</Strong>的 iPhone 17 开箱为例 —— 截图中两台手机同步从
+              <Strong>18:43</Strong> 开始,到 <Strong>20:43</Strong> 仍在传输,两小时还没结束。这正是我们要用
+              <Strong>"去中心化随身云"</Strong>承接的场景:数据不再绑死在某一台设备里。
+            </p>
+            <div className="grid grid-cols-2 gap-3">
+              {[
+                { src: '/innox/research/kol-sync-1843.png', caption: '18:43 · 同步刚开始' },
+                { src: '/innox/research/kol-sync-2043.png', caption: '20:43 · 两小时后仍在同步' },
+              ].map((img) => (
+                <figure key={img.src} className="bg-white rounded-xl overflow-hidden border border-neutral-200/60">
+                  <div className="relative aspect-[9/16]">
+                    <Image
+                      src={img.src}
+                      alt={img.caption}
+                      fill
+                      sizes="(max-width: 768px) 50vw, 240px"
+                      className="object-cover"
+                    />
+                  </div>
+                  <figcaption className="text-[11px] text-neutral-500 px-3 py-2 leading-relaxed">
+                    {img.caption}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+
+          <div className="bg-neutral-50 rounded-2xl p-5 mt-3">
+            <div className="text-[13px] font-semibold text-neutral-800 mb-1">
+              信号 B · iPhone 照片备份内容的播放量与评论
+            </div>
+            <p className="text-[12px] leading-relaxed text-neutral-600 mb-3">
+              B 站搜索"iPhone 照片备份"、"实况 Live 照片备份",可以看到大量博主选题集中在
+              <Strong>苹果照片 / Live 照片备份</Strong> —— 单条视频动辄数十万到百万播放,证明这块需求人群基数大、关注度高。评论区里
+              <Strong>Google Photos / Drive</Strong> 是高频替代方案,但对中国大陆用户而言,这条路径本质上有
+              <Strong>翻墙、付费、网络稳定性</Strong>等障碍 —— 这正是我们要承接的空缺。
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              {[
+                {
+                  src: '/innox/research/bilibili-search-results.png',
+                  caption: 'B 站"iPhone 照片备份"相关选题 · 单条 12 万–138 万级播放',
+                },
+                {
+                  src: '/innox/research/bilibili-backup-views.png',
+                  caption: '黄杨 ME · 备份方案视频 · 评论区高频讨论 Google Photos / iCloud 替代',
+                },
+              ].map((img) => (
+                <figure key={img.src} className="bg-neutral-900 rounded-xl overflow-hidden">
+                  <div className="relative aspect-[4/3]">
+                    <Image
+                      src={img.src}
+                      alt={img.caption}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 360px"
+                      className="object-contain"
+                    />
+                  </div>
+                  <figcaption className="text-[11px] text-neutral-500 px-3 py-2 leading-relaxed bg-white">
+                    {img.caption}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
           </div>
 
           <Prose>
