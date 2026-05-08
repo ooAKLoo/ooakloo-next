@@ -67,9 +67,10 @@ const TOC: TocItem[] = [
   { id: 'strategy', num: '05', title: '抢占市场策略' },
   { id: 'users', num: '06', title: '用户画像 · 使用场景' },
   { id: 'vision', num: '07', title: '产品想象力延展' },
-  { id: 'team', num: '08', title: '团队 · 工程进展' },
-  { id: 'qa', num: '09', title: '常见问题' },
-  { id: 'risks', num: '10', title: '风险与缓解' },
+  { id: 'philosophy', num: '08', title: '战略哲学 · 行业判断' },
+  { id: 'team', num: '09', title: '团队 · 工程进展' },
+  { id: 'qa', num: '10', title: '常见问题' },
+  { id: 'risks', num: '11', title: '风险与缓解' },
   { id: 'vision-end', num: '★', title: '愿景' },
 ];
 
@@ -241,9 +242,10 @@ export default function InnoxDossierPage() {
             <TocItem num="05" title="抢占市场策略" href="#strategy" />
             <TocItem num="06" title="用户画像深度拆解" href="#users" />
             <TocItem num="07" title="产品想象力延展" href="#vision" />
-            <TocItem num="08" title="团队 · 工程进展" href="#team" />
-            <TocItem num="09" title="常见问题" href="#qa" />
-            <TocItem num="10" title="风险与缓解" href="#risks" />
+            <TocItem num="08" title="战略哲学 · 行业判断" href="#philosophy" />
+            <TocItem num="09" title="团队 · 工程进展" href="#team" />
+            <TocItem num="10" title="常见问题" href="#qa" />
+            <TocItem num="11" title="风险与缓解" href="#risks" />
           </div>
         </Card>
 
@@ -778,9 +780,131 @@ export default function InnoxDossierPage() {
           </div>
         </Card>
 
-        {/* 08 · 团队 + 工程 */}
+        {/* 08 · 战略哲学 · 行业判断 */}
+        <Card id="philosophy" delay={0.475}>
+          <SectionLabel>08 · 战略哲学 · 行业判断</SectionLabel>
+          <SectionTitle>从尘埃做起,通向不再被巨头定义的下一代消费电子。</SectionTitle>
+
+          <SubTitle>① 尘埃论 · 我们刻意"小"</SubTitle>
+          <Prose>
+            <p>
+              我们做的这件事,小到落进尘埃里 —— <Strong>是刻意为之</Strong>。先做"小到不被巨头注意"的品类,避免在早期被卷入正面竞争。
+              但当所有的尘埃汇集起来,它的厚度会非常厚。
+            </p>
+            <p>
+              在这层尘埃下面慢慢沉淀的,是<Strong>数据、用户、跨设备习惯</Strong>。一旦市场铺开,有几件事自然成立:
+            </p>
+            <ul className="list-disc pl-6 space-y-2">
+              <li>
+                <Strong>社交:</Strong>{' '}
+                我们不需要再造一个社交产品 —— 只需要开放一个公共接口,愿意上传的人会自然上传。
+                这一头已经沉淀了用户登山、旅行、出行等内容,这是最自然、最克制的社交形态。
+              </li>
+              <li>
+                <Strong>免费硬件的可能性:</Strong>{' '}
+                互联网软件时代最赚钱的模型从来不是售卖,而是免费 —— 早期可以靠卖一千的 ERP / SaaS 工具吃饭,后来发现真正赚钱的是免费软件。硬件因为成本居高不下,至今没有出现"免费硬件"。
+                但当我们把这台设备做成<Strong>跨设备网关 / 数据中枢</Strong>、把全球用户连在一起,基于这层基础设施做硬件不再要钱,是真实存在的可能。
+              </li>
+              <li>
+                <Strong>从工具到基础设施:</Strong>{' '}
+                起点是一台便携存储;终点可能是一张连接全球个体数据的近场网络。
+              </li>
+            </ul>
+            <p>
+              我们最初只关注非常小的人群,后续通过社交裂变向外扩散 —— 这才是"尘埃"被汇集起来的方式。
+            </p>
+          </Prose>
+
+          <SubTitle>② 行业现状 · 消费电子的失语</SubTitle>
+          <Prose>
+            <p>
+              我们对市场的判断,部分来自对当前消费电子产品的<Strong>持续失望</Strong>。
+              这几年所谓的"AI + 硬件"出口,看下来都不成立:
+            </p>
+            <ul className="list-disc pl-6 space-y-3">
+              <li>
+                <Strong>千美金投影小方块(Humane / R1 类):</Strong>{' '}
+                带在身上、不带屏幕、用投影看内容。一千美金卖爆,首发后口碑断崖式下跌 —— 一坨烂泥。
+              </li>
+              <li>
+                <Strong>AI 智能戒指:</Strong>{' '}
+                这条产业线已经做透做烂,无外乎健康。续航和算力没有突破,小型化又需要重资金投入。
+                深圳工厂 100 块以内能拿到带包装的整套戒指,贴个牌卖 1000 块 —— 没有意义。
+              </li>
+              <li>
+                <Strong>挂脖摄像机(Lookin 类):</Strong>{' '}
+                挂在脖子上一整天监控你 24 小时 —— 除了几个博主拍内容,正常人不会接受。而且不是本地算力,长期靠云端订阅。
+              </li>
+              <li>
+                <Strong>录音卡片(Plaud 类):</Strong>{' '}
+                真的有用 —— 然后被钉钉、字节系(Anker)集体抄。
+              </li>
+              <li>
+                <Strong>AI 智能眼镜(阿里等):</Strong>{' '}
+                最近网上炒得很热,博主拍出来好像同声翻译 / HUD 字幕很炫,
+                但绿色文字的美观度与真实场景的需求都存疑 —— 视频只是拍出来的一部分。
+                更关键的是 —— 科技应该<Strong>增强人类本体能力</Strong>,而不是让原本不戴眼镜的人为了功能再戴一副,
+                让戴眼镜的人再额外加一层电子结构。这不是趋势的方向。
+              </li>
+            </ul>
+            <p>
+              所以至今整个产业界,<Strong>没有做出一款真正成立的消费电子新品</Strong>。
+              所有人都在喊"AI + 硬件 / 硬件 + AI",但出口在哪里没人知道。
+            </p>
+          </Prose>
+
+          <SubTitle>③ 三方饥渴 · 制造端、消费端、大厂端</SubTitle>
+          <Prose>
+            <p>站在产业另一端看,饥渴是<Strong>三向</Strong>同时存在的:</p>
+            <ul className="list-disc pl-6 space-y-3">
+              <li>
+                <Strong>消费端:</Strong>{' '}
+                我在字节、大疆共事过的同龄同事,大概率属于全国 95% 以上的高收入人群 ——
+                但他们里极少有人见到新发布会就立刻换手机。
+                作为全球制造业最依托的产品,如果连这部分人都不愿意换,三四线城市还能撬动多少?
+                手机产业过去十年扩出的产线、品牌预算、供应链宽度,需要一个出口。
+              </li>
+              <li>
+                <Strong>制造端:</Strong>{' '}
+                流水线、设备折旧、雇佣关系成本,每天都在消耗。
+                供应链在等一个能让流水线重新跑起来的产品 —— 这是说不出口的隐痛。
+              </li>
+              <li>
+                <Strong>大厂端:</Strong>{' '}
+                所有人都在找"AI + 硬件"的下一个形态,投入了大量预算,但没有任何一家拿出成立的方案。
+              </li>
+            </ul>
+          </Prose>
+
+          <SubTitle>④ 我们的回答 · 一款"终极解决方案"</SubTitle>
+          <Prose>
+            <p>
+              我们这台设备,本质上是把上面这些诉求<Strong>融合成一个解决方案</Strong>:
+            </p>
+            <ul className="list-disc pl-6 space-y-2">
+              <li>
+                对 AI 厂商,它是一个<Strong>近场算力载体 / 数据出口</Strong>;
+              </li>
+              <li>
+                对传统媒体厂商,它是一个<Strong>解锁新内容形态的私域容器</Strong>;
+              </li>
+              <li>
+                对消费电子厂商,它是一个<Strong>能讲清"为什么换"的新品类</Strong>;
+              </li>
+              <li>
+                对个人用户,它是一台<Strong>真正属于自己的随身云</Strong>。
+              </li>
+            </ul>
+            <p>
+              这种"多方诉求同时被满足"的形态,是它真正的想象力来源 ——
+              也是为什么我们相信:这件落进尘埃里的小事,有机会一层一层堆出真正厚的东西。
+            </p>
+          </Prose>
+        </Card>
+
+        {/* 09 · 团队 + 工程 */}
         <Card id="team" delay={0.5}>
-          <SectionLabel>08 · 团队 · 工程进展</SectionLabel>
+          <SectionLabel>09 · 团队 · 工程进展</SectionLabel>
           <SectionTitle>2 个人,移动 / 嵌入 / 硬件 / 产品全栈覆盖。</SectionTitle>
 
           <div className="grid md:grid-cols-2 gap-4">
@@ -847,9 +971,9 @@ export default function InnoxDossierPage() {
           </Prose>
         </Card>
 
-        {/* 09 · Q&A */}
+        {/* 10 · Q&A */}
         <Card id="qa" delay={0.55}>
-          <SectionLabel>09 · 常见问题</SectionLabel>
+          <SectionLabel>10 · 常见问题</SectionLabel>
           <SectionTitle>对项目的几个典型疑问 —— 我们的回答。</SectionTitle>
           <Prose>
             <p>
@@ -1171,9 +1295,9 @@ export default function InnoxDossierPage() {
           </div>
         </Card>
 
-        {/* 10 · 风险 */}
+        {/* 11 · 风险 */}
         <Card id="risks" delay={0.6}>
-          <SectionLabel>10 · 风险与缓解</SectionLabel>
+          <SectionLabel>11 · 风险与缓解</SectionLabel>
           <SectionTitle>我们识别到的主要风险与对应方案。</SectionTitle>
           <Prose>
             <p>以下是项目面临的主要风险及缓解路径:</p>

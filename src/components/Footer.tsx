@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import type { Messages } from '@/messages';
+import InnoxDock from './InnoxDock';
 
 const socialLinks = [
   { name: 'TikTok', icon: '/assets/icons/tiktok.webp', url: 'https://www.tiktok.com/@user5757841605063' },
@@ -96,7 +97,7 @@ export default function Footer({ messages }: FooterProps) {
         <div className="container mx-auto px-6 lg:px-8 py-6">
           <div className="flex flex-wrap justify-center items-center gap-4 text-xs text-gray-500 text-center">
             <span>{messages.footerCopyright.replace('{year}', String(year))}</span>
-            <span className="text-gray-300">|</span>
+            <InnoxDock />
             <a
               href="https://beian.miit.gov.cn/"
               target="_blank"
