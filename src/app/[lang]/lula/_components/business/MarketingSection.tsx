@@ -8,7 +8,7 @@ export function MarketingSection() {
     <>
 {/* 营销话术 · 文案模板(真内容,非占位) */}
         <Card id="marketing" delay={0.56}>
-          <SectionLabel>27 · 营销话术 / 文案模板</SectionLabel>
+          <SectionLabel>25 · 营销话术 / 文案模板</SectionLabel>
           <SectionTitle>
             <Smartphone className="inline-block w-6 h-6 mr-2 -mt-1" style={{ color: ACCENT }} />
             产品做什么 = 营销说什么——内里是同一件事

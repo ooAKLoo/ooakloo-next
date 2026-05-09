@@ -286,7 +286,7 @@ const CacheHitFlowDiagram = () => (
     {/* 异步回灌 */}
     <rect x="780" y="220" width="190" height="60" rx="10" fill="#FAFAFA" stroke="#94A3B8" strokeWidth="1.5" strokeDasharray="4 3" />
     <text x="875" y="243" textAnchor="middle" fontSize="11" fontWeight="700" fill="#334155">⑥ 异步回灌</text>
-    <text x="875" y="260" textAnchor="middle" fontSize="9" fill="#475569">过 17 节安全审核</text>
+    <text x="875" y="260" textAnchor="middle" fontSize="9" fill="#475569">过 15 节安全审核</text>
     <text x="875" y="274" textAnchor="middle" fontSize="9" fill="#475569">+ 预合成 TTS 入库</text>
 
     {/* 设备播放 */}
@@ -431,8 +431,8 @@ interface PromptSlice {
 
 const PROMPT_SLICES: PromptSlice[] = [
   { slice: '系统人格(基础)', source: '静态 · 全孩共享', tokens: '~200', cached: true, example: '"你是 Lula,温柔陪伴 3-8 岁孩子的伙伴…"' },
-  { slice: '分龄人格(详见 16)', source: '按 age_bucket 切片', tokens: '~150', cached: true, example: '5-6:句长 ≤ 14 字,优先比喻,引导提问 1 次/3 轮' },
-  { slice: '安全四层硬约束(详见 17)', source: '静态 · 黑名单 + 重写', tokens: '~120', cached: true, example: '"涉及死亡/暴力/医疗 → 走重写路径"' },
+  { slice: '分龄人格(详见 14)', source: '按 age_bucket 切片', tokens: '~150', cached: true, example: '5-6:句长 ≤ 14 字,优先比喻,引导提问 1 次/3 轮' },
+  { slice: '安全四层硬约束(详见 15)', source: '静态 · 黑名单 + 重写', tokens: '~120', cached: true, example: '"涉及死亡/暴力/医疗 → 走重写路径"' },
   { slice: '该孩子画像摘要', source: '动态 · MemoryService.search', tokens: '~150', cached: false, example: '"5 岁男孩,昵称小米,粤语,爱奥特曼+恐龙;曾问爷爷去世→走安抚分支"' },
   { slice: '最近 8 轮对话', source: '动态 · Redis sorted set', tokens: '~600–1200', cached: false, example: '前 8 轮原文,含孩子打断 / 澄清' },
   { slice: '当前 query', source: '本轮 ASR 输出', tokens: '~20–80', cached: false, example: '"那恐龙是怎么死掉的呀"' },
@@ -506,7 +506,7 @@ const OssRow = ({ tone, name, license, decision, decisionTone, why }: { tone: st
 // ============================================================
 export const MemoryCacheSection = () => (
   <Card id="memory-cache" delay={0.6}>
-    <SectionLabel>22B · Context / Memory / Cache · 三层职责,一套基建</SectionLabel>
+    <SectionLabel>20B · Context / Memory / Cache · 三层职责,一套基建</SectionLabel>
     <SectionTitle>
       <Database className="inline-block w-6 h-6 mr-2 -mt-1" style={{ color: ACCENT }} />
       把 prompt 拼装、孩子画像、问答缓存彻底分开做——边界清晰才好测、好换、好省钱
@@ -742,7 +742,7 @@ export const MemoryCacheSection = () => (
         <ul className="text-[12px] space-y-1 leading-relaxed" style={{ color: MEM_DEEP }}>
           <li>• 事实去重(沿用 mem0)</li>
           <li>• 02:00 cron 重生 summary</li>
-          <li>• 周日 02:00 cron 出周报草稿(详见 19)</li>
+          <li>• 周日 02:00 cron 出周报草稿(详见 17)</li>
         </ul>
       </div>
     </div>
@@ -755,7 +755,7 @@ export const MemoryCacheSection = () => (
         <ul className="space-y-1.5">
           <li>• <b>不存原始对话文本</b>到画像层——只存抽象事实("喜欢奥特曼"),不存"昨天 19:32 说妈妈又凶我了"。原始转写仅在短期 8 轮 buffer 内。</li>
           <li>• <b>家长 App 可读 + 一键删</b>(<code className="font-mono text-[11px]">delete_fact()</code> 直接暴露)——PIPL / 儿童条例硬要求,也是父母信任的关键。</li>
-          <li>• <b>忌讳词触发安抚分支但不进 facts</b>——孩子提到去世亲人 / 校园暴力,标 mention(详见 17),具体上下文不进 InteractionFact。</li>
+          <li>• <b>忌讳词触发安抚分支但不进 facts</b>——孩子提到去世亲人 / 校园暴力,标 mention(详见 15),具体上下文不进 InteractionFact。</li>
           <li>• <b>设备端不存任何画像</b>——离线兜底只能放 L0 静态内容,设备丢了不泄露孩子隐私。</li>
         </ul>
       </div>
@@ -790,7 +790,7 @@ export const MemoryCacheSection = () => (
       color={CACHE}
       kicker="PART III · SEMANTIC CACHE"
       title="通用问答的命中加速器——跨用户共享,严格分区,与孩子无关"
-      sub="3-8 岁问句集中度极高(Top 200 ~35% 流量) · 命中即跳过 Memory + Context + LLM,直返预合成 audio_url · 这是 ¥39/年订阅(详见 25)能跑通的核心变量。"
+      sub="3-8 岁问句集中度极高(Top 200 ~35% 流量) · 命中即跳过 Memory + Context + LLM,直返预合成 audio_url · 这是 ¥39/年订阅(详见 23)能跑通的核心变量。"
     />
 
     {/* A · qa_cache schema */}
@@ -803,7 +803,7 @@ export const MemoryCacheSection = () => (
 
     answer_text       text
     audio_url         s3://...     -- 入库时即预合成 TTS,命中直返
-    safety_passed     bool         -- 必须 true 才能命中(过 17 节)
+    safety_passed     bool         -- 必须 true 才能命中(过 15 节)
     contains_pii      bool         -- true 永不命中
 
     hit_count / last_hit_at / created_at / expires_at
@@ -819,7 +819,7 @@ export const MemoryCacheSection = () => (
         """同 partition 内才返;失败返 None,主链路继续"""
 
     def write(query: str, answer: str, audio_url: str, partition: PartitionKey) -> None:
-        """异步 · 必须先过 17 节安全审核 + 预合成 TTS 才入库"""
+        """异步 · 必须先过 15 节安全审核 + 预合成 TTS 才入库"""
 
     def invalidate(content_version: int) -> int:
         """内容引擎(18)版本变 → 批量失效该版本所有命中"""
@@ -847,9 +847,9 @@ export const MemoryCacheSection = () => (
         embedding   = emb,
         filter      = {
             "partition_key":   partition,           # 严格相等,绝不跨龄/跨方言
-            "safety_passed":   True,                # 过了 17 节四层
+            "safety_passed":   True,                # 过了 15 节四层
             "contains_pii":    False,               # PII 一票否决
-            "content_version": CURRENT_CONTENT_VER  # 18 节当前版本
+            "content_version": CURRENT_CONTENT_VER  # 16 节当前版本
         },
         limit       = 3,
         order_by    = "hit_count DESC"  # LRU + 热度优先
@@ -896,7 +896,7 @@ export const MemoryCacheSection = () => (
         <div className="text-[12px] font-bold mb-2" style={{ color: CACHE }}>冷启动预热</div>
         <ul className="text-[12px] space-y-1 leading-relaxed" style={{ color: CACHE_DEEP }}>
           <li>• 上线前批量打 5000 条高频问(《十万个为什么》题库 + 内容引擎 18 预设 + 友商 App 公开样本)</li>
-          <li>• 经 17 节四层审核 + 预合成 TTS → 灌入 qa_cache</li>
+          <li>• 经 15 节四层审核 + 预合成 TTS → 灌入 qa_cache</li>
           <li>• 首日命中率 ~30%,不需要用户先"养"</li>
         </ul>
       </div>
@@ -947,7 +947,7 @@ export const MemoryCacheSection = () => (
 
     {/* ============================== Part V · 单位经济 ============================== */}
     <div className="text-[11px] font-semibold uppercase tracking-[0.25em] mb-3" style={{ color: ACCENT }}>
-      Part V · 单位经济测算 · 这套基建怎么影响 ¥39/年订阅(详见 25 / 26)
+      Part V · 单位经济测算 · 这套基建怎么影响 ¥39/年订阅(详见 23 / 24)
     </div>
     <div className="overflow-x-auto rounded-2xl border mb-7" style={{ borderColor: '#E5E5E5' }}>
       <table className="w-full text-[12px]" style={{ minWidth: 720 }}>
@@ -970,7 +970,7 @@ export const MemoryCacheSection = () => (
 
     {/* ============================== Part VI · MVP 取舍 ============================== */}
     <div className="text-[11px] font-semibold uppercase tracking-[0.25em] mb-3 flex items-center gap-2" style={{ color: ACCENT }}>
-      <ListChecks className="w-4 h-4" /> Part VI · MVP 取舍 · 三段各自不同节奏(对齐 24 节)
+      <ListChecks className="w-4 h-4" /> Part VI · MVP 取舍 · 三段各自不同节奏(对齐 22 节)
     </div>
     <div className="overflow-x-auto rounded-2xl border mb-3" style={{ borderColor: '#E5E5E5' }}>
       <table className="w-full text-[12px]" style={{ minWidth: 760 }}>

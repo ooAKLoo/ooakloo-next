@@ -17,7 +17,7 @@ const TECH_LAYERS: TechLayerSummary[] = [
     num: 'L1',
     name: '设备端 · ESP32-S3',
     role: '声音采集 / 唤醒 / 离线兜底',
-    ref: '详见 21 节',
+    ref: '详见 19 节',
     icon: Cpu,
     bg: '#ECFDF5',
     color: '#047857',
@@ -26,7 +26,7 @@ const TECH_LAYERS: TechLayerSummary[] = [
     num: 'L2',
     name: '接入网关 · 大陆三区',
     role: '长连接 / 鉴权 / 路由 / OTA',
-    ref: '详见 22 节',
+    ref: '详见 20 节',
     icon: Wifi,
     bg: ACCENT_LIGHT,
     color: ACCENT,
@@ -35,7 +35,7 @@ const TECH_LAYERS: TechLayerSummary[] = [
     num: 'L3',
     name: '实时编排 · Stateful Session',
     role: '对话状态机 / 打断 / 上下文 / 人格',
-    ref: '详见 22 节',
+    ref: '详见 20 节',
     icon: Layers,
     bg: '#F5F3FF',
     color: '#6D28D9',
@@ -44,7 +44,7 @@ const TECH_LAYERS: TechLayerSummary[] = [
     num: 'L4',
     name: '模型层 · 火山引擎',
     role: 'ASR / LLM / TTS 已开通',
-    ref: '详见 23 节',
+    ref: '详见 21 节',
     icon: Brain,
     bg: '#FEF3C7',
     color: '#B45309',
@@ -121,18 +121,18 @@ const SystemArchitectureDiagram = () => (
 
     {/* 安全(产品侧 17) */}
     <rect x="980" y="180" width="180" height="80" rx="8" fill="#FFE4E6" stroke="#BE123C" strokeWidth="1.5" />
-    <text x="1070" y="203" textAnchor="middle" fontSize="11" fontWeight="700" fill="#BE123C">安全 4 层(详见 17)</text>
+    <text x="1070" y="203" textAnchor="middle" fontSize="11" fontWeight="700" fill="#BE123C">安全 4 层(详见 15)</text>
     <text x="1070" y="223" textAnchor="middle" fontSize="10" fill="#BE123C">输入 / 模型 / 输出 / 审计</text>
     <text x="1070" y="242" textAnchor="middle" fontSize="10" fill="#BE123C" opacity="0.7">儿童白名单 + 重写</text>
 
     {/* 内容引擎(产品侧 18) */}
     <rect x="320" y="300" width="160" height="60" rx="8" fill="#FFF7ED" stroke="#C2410C" strokeWidth="1.5" />
-    <text x="400" y="322" textAnchor="middle" fontSize="11" fontWeight="700" fill="#C2410C">内容引擎(详见 18)</text>
+    <text x="400" y="322" textAnchor="middle" fontSize="11" fontWeight="700" fill="#C2410C">内容引擎(详见 16)</text>
     <text x="400" y="342" textAnchor="middle" fontSize="10" fill="#C2410C">分龄 / IP / 方言 / 父母音</text>
 
     {/* 家长后台(产品侧 19) */}
     <rect x="100" y="300" width="180" height="60" rx="8" fill="#F3F4F6" stroke="#374151" strokeWidth="1.5" />
-    <text x="190" y="322" textAnchor="middle" fontSize="11" fontWeight="700" fill="#374151">家长后台(详见 19)</text>
+    <text x="190" y="322" textAnchor="middle" fontSize="11" fontWeight="700" fill="#374151">家长后台(详见 17)</text>
     <text x="190" y="342" textAnchor="middle" fontSize="10" fill="#374151">报告 / 内购 / 管控</text>
 
     {/* 上行音频流 (蓝实线) */}
@@ -186,7 +186,7 @@ const SystemArchitectureDiagram = () => (
 
 export const TechOverviewSection = () => (
   <Card id="tech-overview" delay={0.58}>
-    <SectionLabel>20 · 技术总览 · 端到端低延时方案</SectionLabel>
+    <SectionLabel>18 · 技术总览 · 端到端低延时方案</SectionLabel>
     <SectionTitle>
       <Layers className="inline-block w-6 h-6 mr-2 -mt-1" style={{ color: ACCENT }} />
       用开源起步,自研收口——把"说完到出声"压到 1.2 秒以内
@@ -215,7 +215,7 @@ export const TechOverviewSection = () => (
         <li className="flex gap-2.5">
           <span className="shrink-0 font-bold">③</span>
           <span>
-            <b>3-8 岁不是"小一号的成人"</b>——分龄人格、教育法、安全四层这些<b>产品侧的硬规则</b>(详见 16 / 17),
+            <b>3-8 岁不是"小一号的成人"</b>——分龄人格、教育法、安全四层这些<b>产品侧的硬规则</b>(详见 14 / 15),
             必须翻译成 prompt 和过滤规则,塞进每一次模型调用。
           </span>
         </li>
@@ -224,7 +224,7 @@ export const TechOverviewSection = () => (
           <span>
             <b>"越用越懂孩子"和"高频问句不重复花钱"是同一件工程</b>
             ——Agent Memory + Semantic Cache 共用一套 embedding + 向量库,
-            既兜起 19 节家长报告的产品承诺,又压住 26 节的 token 账单;
+            既兜起 17 节家长报告的产品承诺,又压住 24 节的 token 账单;
             <b>详细拆解见 22B 节</b>。
           </span>
         </li>
@@ -261,7 +261,7 @@ export const TechOverviewSection = () => (
         <span style={{ color: '#6D28D9' }}><b> Memory</b></span>(跨会话的孩子画像 store · 跑出"AI 越用越懂") ·
         <span style={{ color: '#B45309' }}><b> Semantic Cache</b></span>(通用问答缓存 · 跑出"高频问句不重复花钱")。
         三件事职责清、好测、好换,Cache 命中可绕过 LLM 直返预合成 audio,Memory 永远经 Context 进 prompt。
-        <span className="font-semibold" style={{ color: ACCENT }}> → 详见 22B 节(数据模型 / API 签名 / 命中流程伪代码 / 开源决策 / 与 24·MVP 节奏)。</span>
+        <span className="font-semibold" style={{ color: ACCENT }}> → 详见 20B 节(数据模型 / API 签名 / 命中流程伪代码 / 开源决策 / 与 22·MVP 节奏)。</span>
       </div>
     </div>
 

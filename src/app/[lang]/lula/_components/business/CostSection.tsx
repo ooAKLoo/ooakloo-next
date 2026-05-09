@@ -424,7 +424,7 @@ const sources = [
 export function CostSection() {
   return (
     <Card id="cost" delay={0.56}>
-      <SectionLabel>26 · 成本估算 / 落地账</SectionLabel>
+      <SectionLabel>24 · 成本估算 / 落地账</SectionLabel>
       <SectionTitle>
         <Calculator className="inline-block w-6 h-6 mr-2 -mt-1" style={{ color: ACCENT }} />
         先按真价格把硬件、云端和订阅底线算清楚

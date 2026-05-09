@@ -24,7 +24,6 @@ import { ProductDivider } from './_components/shared/ProductDivider';
 import { LinkSection } from './_components/strategy/LinkSection';
 import { MoatSection } from './_components/strategy/MoatSection';
 import { NetworkSection } from './_components/strategy/NetworkSection';
-import { StackSection } from './_components/strategy/StackSection';
 import { AccountSystemSection } from './_components/tech/AccountSystemSection';
 import { DeviceLayerSection } from './_components/tech/DeviceLayerSection';
 import { MemoryCacheSection } from './_components/tech/MemoryCacheSection';
@@ -50,7 +49,6 @@ export default function LulaResearchPage() {
         <ParentMindSection />
         <ChildMindSection />
         <PersonasSection />
-        <StackSection />
         <MoatSection />
         <NetworkSection />
         <LinkSection />

@@ -42,7 +42,7 @@ const skus: SkuRow[] = [
     price: '¥149 / 199 / 249',
     hint: '按 IP 形态 / 配色分级；硬件买断 + 含 1 年 AI 对话',
     detail:
-      '离线故事 / 儿歌 / 熏听永不锁。售价里必须先扣掉首年云成本 ¥30–45（详见 26 成本估算），不能把首年做成无限畅聊。',
+      '离线故事 / 儿歌 / 熏听永不锁。售价里必须先扣掉首年云成本 ¥30–45（详见 24 成本估算），不能把首年做成无限畅聊。',
     Icon: Box,
     emphasis: true,
   },
@@ -125,7 +125,7 @@ const planBSkus: PlanBSku[] = [
   {
     layer: '硬件',
     what: '不亏本卖 · ¥99–129 起',
-    how: '毛绒压到 ¥80 内（详见 26 成本估算），硬件不再含 1 年 AI；用更低门槛换装机量。',
+    how: '毛绒压到 ¥80 内（详见 24 成本估算），硬件不再含 1 年 AI；用更低门槛换装机量。',
     Icon: Tag,
   },
   {
@@ -229,13 +229,13 @@ const matrix: MatrixRow[] = [
 ];
 
 // =============================================================
-// Card 1 · 25 · 商业模式 总览（intro + 红线 + 决策矩阵）
+// Card 1 · 23 · 商业模式 总览（intro + 红线 + 决策矩阵）
 // =============================================================
 
 export function BusinessModelSection() {
   return (
     <Card id="business" delay={0.7}>
-      <SectionLabel>25 · 商业模式 / 定价 SKU</SectionLabel>
+      <SectionLabel>23 · 商业模式 / 定价 SKU</SectionLabel>
       <SectionTitle>
         <Coins className="inline-block w-6 h-6 mr-2 -mt-1" style={{ color: ACCENT }} />
         硬件薄毛利保现金流，软商品 + 云续费补 LTV；预留一条流量化的 Plan B
@@ -243,8 +243,8 @@ export function BusinessModelSection() {
 
       <div className="rounded-2xl p-5 mb-7" style={{ backgroundColor: ACCENT_LIGHT }}>
         <div className="text-sm leading-relaxed" style={{ color: ACCENT }}>
-          默认走<b>模式 1.0 · 硬件 + 订阅 + 软商品</b>（见 25.1）：现金流回正最快，SKU 清晰，监管暴露面低。
-          同时把<b>模式 2.0 · 流量化备选</b>放在桌面上（见 25.2）——
+          默认走<b>模式 1.0 · 硬件 + 订阅 + 软商品</b>（见 23.1）：现金流回正最快，SKU 清晰，监管暴露面低。
+          同时把<b>模式 2.0 · 流量化备选</b>放在桌面上（见 23.2）——
           母婴粉单粉估值 ¥80–120、母婴 CPA ¥150–300，我们的标签比纯母婴号还垂，理论上 LTV 更高。
           但 2.0 的兑现路径只能在<b>家长 App 侧</b>，玩具本体和儿童端有 6 条红线必须先认下来。
         </div>
@@ -391,13 +391,13 @@ export function BusinessModelSection() {
 }
 
 // =============================================================
-// Card 2 · 25.1 · 模式 1.0 · 硬件 + 订阅 + 软商品
+// Card 2 · 23.1 · 模式 1.0 · 硬件 + 订阅 + 软商品
 // =============================================================
 
 export function BusinessModel1Section() {
   return (
     <Card id="business-1" delay={0.71}>
-      <SectionLabel>25.1 · 模式 1.0 · 硬件 + 订阅 + 软商品</SectionLabel>
+      <SectionLabel>23.1 · 模式 1.0 · 硬件 + 订阅 + 软商品</SectionLabel>
       <SectionTitle>
         <Layers className="inline-block w-6 h-6 mr-2 -mt-1" style={{ color: ACCENT }} />
         4 个 SKU + 6 条渠道：硬件薄毛利获客，订阅 / 软商品 / 内容包补 LTV
@@ -461,7 +461,7 @@ export function BusinessModel1Section() {
         <div className="text-[12px] leading-relaxed" style={{ color: '#92400E' }}>
           <b>单位经济硬约束：</b>主机售价里必须先扣掉首年云成本 ¥30–45；
           ¥39/年不能承诺无限畅聊，必须有公平使用额度；重度用户占比 &gt; 10% 时 ¥39/年会被击穿，
-          必须强制升级到 ¥19.9/月（详见 26 成本估算的订阅底价测算）。
+          必须强制升级到 ¥19.9/月（详见 24 成本估算的订阅底价测算）。
         </div>
       </div>
     </Card>
@@ -469,13 +469,13 @@ export function BusinessModel1Section() {
 }
 
 // =============================================================
-// Card 3 · 25.2 · 模式 2.0 · 流量化备选
+// Card 3 · 23.2 · 模式 2.0 · 流量化备选
 // =============================================================
 
 export function BusinessModel2Section() {
   return (
     <Card id="business-2" delay={0.72}>
-      <SectionLabel>25.2 · 模式 2.0 · 流量化备选</SectionLabel>
+      <SectionLabel>23.2 · 模式 2.0 · 流量化备选</SectionLabel>
       <SectionTitle>
         <ArrowRightLeft className="inline-block w-6 h-6 mr-2 -mt-1" style={{ color: ACCENT }} />
         把硬件 + AI 做到几乎免费，靠家长 App 的 CPS / 内容定制 / 聚合洞察补回来
@@ -485,7 +485,7 @@ export function BusinessModel2Section() {
         <div className="text-[13px] leading-relaxed" style={{ color: ACCENT }}>
           这一节是 <b>Plan B</b>，不替换 1.0：在切换扳机被触发前不动 SKU、不开商城；
           但价值锚点和落地路径必须先想清楚，不然信号到了反应不过来。
-          所有内容只在<b>家长 App 侧</b>兑现，儿童端的 6 条红线（见 25 红线区）任何一条都不能踩。
+          所有内容只在<b>家长 App 侧</b>兑现，儿童端的 6 条红线（见 23 红线区）任何一条都不能踩。
         </div>
       </div>
 

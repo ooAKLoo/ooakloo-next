@@ -17,7 +17,7 @@ const VENDOR_STACK = [
 
 export const ModelLayerSection = () => (
   <Card id="model-layer" delay={0.64}>
-    <SectionLabel>23 · 模型层 · 火山引擎全链路</SectionLabel>
+    <SectionLabel>21 · 模型层 · 火山引擎全链路</SectionLabel>
     <SectionTitle>
       <Brain className="inline-block w-6 h-6 mr-2 -mt-1" style={{ color: '#B45309' }} />
       ASR / LLM / TTS 三件事——一家供应商 + 一个适配层

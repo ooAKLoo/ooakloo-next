@@ -4,17 +4,13 @@ import {
   BookOpen,
   Brain,
   Clock,
-  Cpu,
   Crown,
   HandCoins,
   Heart,
   MonitorOff,
-  Package,
   ShieldCheck,
-  Smartphone,
   Target,
   Users,
-  Volume2,
   type LucideIcon,
 } from 'lucide-react';
 import type { Tone } from './_shared';
@@ -180,7 +176,7 @@ export const COMPETITORS: Competitor[] = [
       '/lula/competitors/babycare-westie-gallery/05-media.png',
       '/lula/competitors/babycare-westie-gallery/06-awards.png',
     ],
-    video: '/lula/competitors/babycare-westie-gallery/video.mov',
+    video: 'https://ooakloo.oss-cn-shanghai.aliyuncs.com/lula/competitors/babycare-westie-gallery/video.mov',
   },
   {
     img: '/lula/competitors/bctoys/01-cover.png',
@@ -202,7 +198,7 @@ export const COMPETITORS: Competitor[] = [
       '/lula/competitors/bctoys/05-music.png',
       '/lula/competitors/bctoys/06-action.png',
     ],
-    video: '/lula/competitors/bctoys/video.mov',
+    video: 'https://ooakloo.oss-cn-shanghai.aliyuncs.com/lula/competitors/bctoys/video.mov',
   },
   {
     img: '/lula/competitors/ubtech-wukong.jpg',
@@ -956,17 +952,6 @@ export const LOW_PATHS: LowPath[] = [
     ],
     whyMoat: '大厂硬件最低毛利门槛 35%+、SKU 出货 50 万台起、品牌不肯贴县城——¥149 价位段 + 县代理土味渠道这两件事大厂三个都过不了',
   },
-  {
-    num: '05',
-    title: '包装义乌风 + 渠道大厂去不了的地方',
-    desc: '土味包装在抖音直播间转化率反而更高。线上线下双管齐下，全部避开大厂主战场',
-    examples: [
-      '包装：大红 + 大字 + 90 年代电子表风格(不要 MUJI 风)',
-      '线上：拼多多 + 视频号 + 快手(不碰天猫京东)',
-      '线下：县城大集 / 庙会玩具摊 / 学校门口文具店 / 县城母婴连锁',
-    ],
-    whyMoat: '县城代理一家家跑——大厂销售总监招不到这种人',
-  },
 ];
 
 interface NetDeadEnd {
@@ -1394,22 +1379,6 @@ export const ABANDON_REASONS: AbandonReason[] = [
   { pct: '43.0%', reason: '安静时突然语出惊人' },
 ];
 
-interface Stack {
-  icon: LucideIcon;
-  src: string;
-  layer: string;
-  title: string;
-}
-
-export const STACK: Stack[] = [
-  { icon: Package, src: 'FoloToy', layer: '形态', title: '毛绒一体机降低认知门槛 — 父母 / 奶奶辈不用解释"这是什么"，比 BubblePal 挂件更易被县城接受' },
-  { icon: Volume2, src: '京东京造唠唠鹦', layer: '语言', title: '一方言一 SKU(粤 / 川 / 闽南 / 潮汕)— 唠唠鹦 100 元价位已跑通方言付费场景，能力直接接讯飞 / 火山方言 ASR+TTS，不自研' },
-  { icon: Cpu, src: '阿尔法蛋', layer: '声纹', title: '5 分钟录音克隆父母声音 — 留守儿童情感杀器' },
-  { icon: Heart, src: 'FoloToy', layer: '留存', title: '玩具主动说"来陪陪我" — 双向召唤是反第三周抛弃的关键' },
-  { icon: BookOpen, src: '牛听听', layer: '使用', title: '熏听 + 定时自动播放 — 家长零学习成本' },
-  { icon: Smartphone, src: 'BubblePal + 凯叔 + 洪恩', layer: '软件', title: '家长成长洞察 + 分龄推荐 + 科学分级' },
-];
-
 export const TOC_GROUPS: TocGroup[] = [
   {
     label: '概念基础',
@@ -1441,35 +1410,34 @@ export const TOC_GROUPS: TocGroup[] = [
     label: '战略框架',
     hint: '调研 → 落地',
     items: [
-      { id: 'stack', num: '10', title: '叠加 · 抄什么' },
-      { id: 'moat', num: '11', title: '避战 · 做大厂做不了的' },
-      { id: 'network', num: '12', title: '联网策略 · 居家为主' },
-      { id: 'link', num: '13', title: '串联 · 商业闭环' },
+      { id: 'moat', num: '09', title: '避战 · 做大厂做不了的' },
+      { id: 'network', num: '10', title: '联网策略 · 居家为主' },
+      { id: 'link', num: '11', title: '串联 · 商业闭环' },
     ],
   },
   {
     label: '产品侧 · 做什么',
     hint: '下篇 · A',
     items: [
-      { id: 'product-overview', num: '14', title: '产品功能总览 · 一图看完' },
-      { id: 'form-factor', num: '15', title: '产品形态 / 硬件外观' },
-      { id: 'dialogue', num: '16', title: '对话能力 · 分龄 + 教育法' },
-      { id: 'safety', num: '17', title: '安全与家长可控' },
-      { id: 'content', num: '18', title: '内容体系 · IP + 方言' },
-      { id: 'parent-app', num: '19', title: '家长后台 · 软件边界' },
+      { id: 'product-overview', num: '12', title: '产品功能总览 · 一图看完' },
+      { id: 'form-factor', num: '13', title: '产品形态 / 硬件外观' },
+      { id: 'dialogue', num: '14', title: '对话能力 · 分龄 + 教育法' },
+      { id: 'safety', num: '15', title: '安全与家长可控' },
+      { id: 'content', num: '16', title: '内容体系 · IP + 方言' },
+      { id: 'parent-app', num: '17', title: '家长后台 · 软件边界' },
     ],
   },
   {
     label: '技术侧 · 怎么落',
     hint: '下篇 · B',
     items: [
-      { id: 'tech-overview', num: '20', title: '技术总览 · 端到端低延时' },
-      { id: 'device-layer', num: '21', title: '端侧 · ESP32-S3' },
-      { id: 'orchestration', num: '22', title: '接入网关与实时编排' },
-      { id: 'memory-cache', num: '22B', title: 'Context · Memory · Cache · 三层职责' },
-      { id: 'account-system', num: '22C', title: '账号 · 家庭 · 设备绑定 · 微信生态' },
-      { id: 'model-layer', num: '23', title: '模型层 · 火山引擎' },
-      { id: 'mvp-scope', num: '24', title: 'MVP 取舍 + PRD 硬指标' },
+      { id: 'tech-overview', num: '18', title: '技术总览 · 端到端低延时' },
+      { id: 'device-layer', num: '19', title: '端侧 · ESP32-S3' },
+      { id: 'orchestration', num: '20', title: '接入网关与实时编排' },
+      { id: 'memory-cache', num: '20B', title: 'Context · Memory · Cache · 三层职责' },
+      { id: 'account-system', num: '20C', title: '账号 · 家庭 · 设备绑定 · 微信生态' },
+      { id: 'model-layer', num: '21', title: '模型层 · 火山引擎' },
+      { id: 'mvp-scope', num: '22', title: 'MVP 取舍 + PRD 硬指标' },
     ],
   },
   {
@@ -1478,19 +1446,19 @@ export const TOC_GROUPS: TocGroup[] = [
     items: [
       {
         id: 'business',
-        num: '25',
+        num: '23',
         title: '商业模式 / 定价 SKU',
         children: [
-          { id: 'business-1', num: '25.1', title: '模式 1.0 · 硬件 + 订阅 + 软商品' },
-          { id: 'business-2', num: '25.2', title: '模式 2.0 · 流量化备选' },
+          { id: 'business-1', num: '23.1', title: '模式 1.0 · 硬件 + 订阅 + 软商品' },
+          { id: 'business-2', num: '23.2', title: '模式 2.0 · 流量化备选' },
         ],
       },
-      { id: 'prereq', num: '25B', title: '前置准备 / 资质与上线时序' },
-      { id: 'cost', num: '26', title: '成本估算 / 落地账' },
-      { id: 'marketing', num: '27', title: '营销话术 / 文案模板' },
-      { id: 'creator-recruitment', num: '28', title: '宝妈带货招募 / 面试介绍' },
-      { id: 'roadmap', num: '29', title: '路线图与里程碑' },
-      { id: 'team-risk', num: '30', title: '团队 · 风险 · 下一步' },
+      { id: 'prereq', num: '23B', title: '前置准备 / 资质与上线时序' },
+      { id: 'cost', num: '24', title: '成本估算 / 落地账' },
+      { id: 'marketing', num: '25', title: '营销话术 / 文案模板' },
+      { id: 'creator-recruitment', num: '26', title: '宝妈带货招募 / 面试介绍' },
+      { id: 'roadmap', num: '27', title: '路线图与里程碑' },
+      { id: 'team-risk', num: '28', title: '团队 · 风险 · 下一步' },
     ],
   },
 ];
@@ -1507,7 +1475,7 @@ interface PlaceholderSection {
 export const PLACEHOLDERS: PlaceholderSection[] = [
   {
     id: 'form-factor',
-    num: '15',
+    num: '13',
     label: '产品形态 / 硬件方案',
     title: 'Lula v1 长什么样',
     images: [
@@ -1521,14 +1489,14 @@ export const PLACEHOLDERS: PlaceholderSection[] = [
     ],
     bullets: [
       '外观与材质：毛绒 + IP 形象一体机 / 形态 / 尺寸 / 颜色 / 安全认证',
-      '成本口径：50k 量产目标 ¥68–96 / 台，5k 试产更接近 ¥96–128；详见 26 成本估算',
+      '成本口径：50k 量产目标 ¥68–96 / 台，5k 试产更接近 ¥96–128；详见 24 成本估算',
       '续航与功耗：典型场景下的使用时长与充电方式',
       '可扩展配件：可换洗外衣 / 颈带 / 充电底座(义乌代工，无电子模组)',
     ],
   },
   {
     id: 'content',
-    num: '18',
+    num: '16',
     label: '内容体系 · IP + 方言 + 父母音',
     title: '不靠卡牌，靠语音指令路由',
     bullets: [
@@ -1542,7 +1510,7 @@ export const PLACEHOLDERS: PlaceholderSection[] = [
   },
   {
     id: 'parent-app',
-    num: '19',
+    num: '17',
     label: '家长后台 · 软件边界',
     title: '家长 App 的边界',
     bullets: [
@@ -1556,7 +1524,7 @@ export const PLACEHOLDERS: PlaceholderSection[] = [
   },
   {
     id: 'roadmap',
-    num: '29',
+    num: '27',
     label: '路线图与里程碑',
     title: '12 个月节奏',
     bullets: [
@@ -1568,7 +1536,7 @@ export const PLACEHOLDERS: PlaceholderSection[] = [
   },
   {
     id: 'team-risk',
-    num: '30',
+    num: '28',
     label: '团队 · 风险 · 下一步',
     title: '我们 / 不确定 / 接下来要做',
     bullets: [

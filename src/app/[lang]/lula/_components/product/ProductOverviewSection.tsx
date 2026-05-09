@@ -1,15 +1,17 @@
 /* eslint-disable react/no-unescaped-entities */
 import {
   BadgeCheck,
-  MessageCircle,
-  Users,
-  Languages,
-  Heart,
-  Sparkles,
-  WifiOff,
-  Smartphone,
   BellRing,
+  Clock,
+  Heart,
+  Languages,
+  MessageCircle,
   ShieldCheck,
+  Smartphone,
+  Sparkles,
+  TrendingUp,
+  Users,
+  WifiOff,
   type LucideIcon,
 } from 'lucide-react';
 import { ACCENT, ACCENT_LIGHT, Card, SectionLabel, SectionTitle } from '../../_shared';
@@ -74,6 +76,16 @@ const FEATURES: FeatureCard[] = [
     title: '四层儿童安全',
     desc: '输入 / 模型 / 输出 / 审计四层串联,儿童白名单 + 长度分龄限制。',
   },
+  {
+    icon: Clock,
+    title: '熏听 + 定时自动播放',
+    desc: '家长零学习成本——按时段自动播放儿歌 / 故事 / 古诗,起床、午睡、哄睡都不用每次手动点(抄牛听听)。',
+  },
+  {
+    icon: TrendingUp,
+    title: '成长洞察 + 分龄推荐',
+    desc: '家长 App 给本周对话洞察 + 0-3 / 3-6 / 6-7 三档科学分级内容推荐(抄 BubblePal + 凯叔 + 洪恩)。',
+  },
 ];
 
 const NAMING_OPTIONS: NamingOption[] = [
@@ -116,13 +128,13 @@ const NAMING_OPTIONS: NamingOption[] = [
 
 export const ProductOverviewSection = () => (
   <Card id="product-overview" delay={0.44}>
-    <SectionLabel>14 · 产品功能总览</SectionLabel>
+    <SectionLabel>12 · 产品功能总览</SectionLabel>
     <SectionTitle>
       Lula 大致功能 · 一图看完
     </SectionTitle>
     <p className="text-sm text-neutral-600 leading-relaxed mb-6">
-      下面 9 张卡片是 Lula 对家长的全部承诺——后续 15–19 节按"形态 / 对话 / 安全 / 内容 / 家长端"
-      五个维度<b className="text-neutral-900">逐一展开产品侧细节</b>;20–24 节再讲技术怎么落;25–28 节讲商业 / 推广 / 路线。
+      下面 11 张卡片是 Lula 对家长的全部承诺——后续 13–17 节按"形态 / 对话 / 安全 / 内容 / 家长端"
+      五个维度<b className="text-neutral-900">逐一展开产品侧细节</b>;18–22 节再讲技术怎么落;23–26 节讲商业 / 推广 / 路线。
     </p>
 
     <div className="rounded-2xl border border-blue-100 p-5 mb-6" style={{ backgroundColor: ACCENT_LIGHT }}>

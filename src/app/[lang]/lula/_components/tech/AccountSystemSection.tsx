@@ -426,7 +426,7 @@ const ROLES: RoleRow[] = [
   { role: 'owner · 主家长', who: '创建 Family 的那个人(通常是主要购买者)', perms: '全部权限:管理成员 / 增删孩子 / 改订阅 / 删事实 / 解绑设备 / 注销家庭' },
   { role: 'spouse · 副家长', who: '主家长邀请的配偶或共抚养人', perms: '同 owner 但不可注销家庭、不可移除 owner' },
   { role: 'grandparent · 爷爷奶奶', who: '主家长邀请加入的祖辈', perms: '看周报 ✔ · 录语音叫醒 ✔ · 改孩子画像 ✘ · 删事实 ✘ · 改订阅 ✘' },
-  { role: 'agent · 县代理', who: '帮助乡镇用户首次配网 / 解决问题的代理人', perms: '协助配网完成绑定 ✔ · 看孩子任何数据 ✘ · 售后工单仅看脱敏字段(详见 28)' },
+  { role: 'agent · 县代理', who: '帮助乡镇用户首次配网 / 解决问题的代理人', perms: '协助配网完成绑定 ✔ · 看孩子任何数据 ✘ · 售后工单仅看脱敏字段(详见 26)' },
 ];
 
 interface MvpRow {
@@ -441,7 +441,7 @@ const MVP_PHASES: MvpRow[] = [
   { phase: 'M2 · 内测(50 户)', auth: 'Casdoor 默认 UI · 仅手机号登录', biz: 'Account / Family / Child / Device 主表', bind: '蓝牙 BluFi + 6 位绑定码,无二维码', pay: '不上付费,内测全免' },
   { phase: 'M4 · DVT(300 户)', auth: '+ 微信开放平台 OAuth · App 走原生登录', biz: '+ FamilyMember + Role 矩阵 + ParentalConsent', bind: '+ 二维码扫码绑定 + 设备转赠流程', pay: '+ 微信支付 + Subscription + 内购订单' },
   { phase: 'M6 · PVT(1000 户)', auth: '+ 微信小程序登录 · 异地登录提醒 · 多端会话管理', biz: '+ 一键导出 + 一键删除 + 注销家庭', bind: '+ 设备丢失上报 + 解绑 + 设备风控', pay: '+ 月付 / 年付 / 续费提醒 + 退款流程' },
-  { phase: 'V1.5 后', auth: '+ 抖音 / QQ 登录 · 实名核验(可选)', biz: '+ 县代理体系(详见 28) + 多 Family 协同', bind: '+ 多设备群组(同孩子多场景) + 漫游', pay: '+ 软商品商城 + IP 联名内购 + 拼团' },
+  { phase: 'V1.5 后', auth: '+ 抖音 / QQ 登录 · 实名核验(可选)', biz: '+ 县代理体系(详见 26) + 多 Family 协同', bind: '+ 多设备群组(同孩子多场景) + 漫游', pay: '+ 软商品商城 + IP 联名内购 + 拼团' },
 ];
 
 // ============================================================
@@ -500,7 +500,7 @@ const OssRow = ({ tone, row }: { tone: string; row: OssDecisionRow }) => {
 // ============================================================
 export const AccountSystemSection = () => (
   <Card id="account-system" delay={0.62}>
-    <SectionLabel>22C · 账号 · 家庭 · 设备绑定 · 微信生态 + 国内合规的账号体系</SectionLabel>
+    <SectionLabel>20C · 账号 · 家庭 · 设备绑定 · 微信生态 + 国内合规的账号体系</SectionLabel>
     <SectionTitle>
       <UserCircle className="inline-block w-6 h-6 mr-2 -mt-1" style={{ color: ACCENT }} />
       认证用 Casdoor(开源),业务模型自建——一户多孩、一孩多端、爷奶可读不可买
@@ -712,7 +712,7 @@ class DeviceService:
       </div>
       <div className="rounded-2xl p-4 border" style={{ backgroundColor: DEV_LIGHT, borderColor: DEV_BORDER }}>
         <div className="text-[12px] font-bold mb-2" style={{ color: DEV_DEEP }}>县代理协助配网</div>
-        <div className="text-[12px] leading-relaxed" style={{ color: DEV }}>agent 角色可代为完成 BluFi · bind 时使用家长扫的二维码 · 全程不接触家长账号密码 · 完成后自动退场(详见 28 节宝妈带货)。</div>
+        <div className="text-[12px] leading-relaxed" style={{ color: DEV }}>agent 角色可代为完成 BluFi · bind 时使用家长扫的二维码 · 全程不接触家长账号密码 · 完成后自动退场(详见 26 节宝妈带货)。</div>
       </div>
     </div>
 
@@ -729,7 +729,7 @@ class DeviceService:
     <ul className="text-[12px] space-y-1.5 mb-5 leading-relaxed text-neutral-700">
       <li>• <b>挂 Family 不挂 Account</b>:二胎共用同一份订阅(看 SKU)、爷爷奶奶代付不影响订阅归属、主家长换号订阅不丢</li>
       <li>• <b>状态机:</b><code className="font-mono text-[11px]">trial → active → grace(过期 7 天宽限) → expired → renewed</code> · 设备端只关心 active vs not</li>
-      <li>• <b>SKU 切片</b>(对齐 25 节):¥149 主机含 1 年 · 第 2 年起 ¥39/年 / ¥9.9 月 · 升级 ¥19.9 月安全档 · 内购按"次"或"包"</li>
+      <li>• <b>SKU 切片</b>(对齐 23 节):¥149 主机含 1 年 · 第 2 年起 ¥39/年 / ¥9.9 月 · 升级 ¥19.9 月安全档 · 内购按"次"或"包"</li>
       <li>• <b>异步通知必须幂等</b>:微信支付回调可能重复 · 用 out_trade_no 做唯一键</li>
     </ul>
 
@@ -761,7 +761,7 @@ class DeviceService:
 
     {/* ============================== Part VI · MVP 节奏 ============================== */}
     <div className="text-[11px] font-semibold uppercase tracking-[0.25em] mb-3 flex items-center gap-2" style={{ color: ACCENT }}>
-      <ListChecks className="w-4 h-4" /> Part VI · MVP 节奏 · 四块各自不同节奏(对齐 24 节)
+      <ListChecks className="w-4 h-4" /> Part VI · MVP 节奏 · 四块各自不同节奏(对齐 22 节)
     </div>
     <div className="overflow-x-auto rounded-2xl border mb-3" style={{ borderColor: '#E5E5E5' }}>
       <table className="w-full text-[12px]" style={{ minWidth: 800 }}>

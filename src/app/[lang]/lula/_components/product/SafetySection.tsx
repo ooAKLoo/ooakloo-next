@@ -53,7 +53,7 @@ const SAFETY_LAYERS: SafetyLayer[] = [
 
 export const SafetySection = () => (
   <Card id="safety" delay={0.52}>
-    <SectionLabel>17 · 安全与家长可控</SectionLabel>
+    <SectionLabel>15 · 安全与家长可控</SectionLabel>
     <SectionTitle>
       <ShieldCheck className="inline-block w-6 h-6 mr-2 -mt-1" style={{ color: ACCENT }} />
       四层防护,缺一不可——这是过审 + 续费的底线

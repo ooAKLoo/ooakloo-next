@@ -107,7 +107,7 @@ export function CreatorRecruitmentSection() {
 
   return (
     <Card id="creator-recruitment" delay={0.64}>
-      <SectionLabel>28 · 宝妈带货招募 / 面试文案</SectionLabel>
+      <SectionLabel>26 · 宝妈带货招募 / 面试文案</SectionLabel>
       <SectionTitle>
         <MessageCircle className="inline-block w-6 h-6 mr-2 -mt-1" style={{ color: ACCENT }} />
         直接给候选人看的正文，小红书 / 抖音两套口径

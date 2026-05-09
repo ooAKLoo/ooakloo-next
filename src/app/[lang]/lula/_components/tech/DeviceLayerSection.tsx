@@ -19,7 +19,7 @@ const DEVICE_KPIS = [
 
 export const DeviceLayerSection = () => (
   <Card id="device-layer" delay={0.6}>
-    <SectionLabel>21 · 端侧 · ESP32-S3 主控</SectionLabel>
+    <SectionLabel>19 · 端侧 · ESP32-S3 主控</SectionLabel>
     <SectionTitle>
       <Cpu className="inline-block w-6 h-6 mr-2 -mt-1" style={{ color: '#047857' }} />
       声音采集 / 端侧唤醒 / 离线兜底——硬件能省钱也能背锅

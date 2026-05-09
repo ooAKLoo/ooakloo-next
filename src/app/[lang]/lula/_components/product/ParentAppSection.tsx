@@ -47,7 +47,7 @@ const SCREENS = [
 
 export const ParentAppSection = () => (
   <Card id="parent-app" delay={0.55}>
-    <SectionLabel>19 · 家长后台 · 软件边界</SectionLabel>
+    <SectionLabel>17 · 家长后台 · 软件边界</SectionLabel>
     <SectionTitle>
       <Smartphone className="inline-block w-6 h-6 mr-2 -mt-1" style={{ color: ACCENT }} />
       家长 App 的边界 —— 温情陪伴，而不是监控仪表盘

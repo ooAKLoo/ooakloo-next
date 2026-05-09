@@ -266,7 +266,7 @@ const StateMachineDiagram = () => (
 
 export const OrchestrationSection = () => (
   <Card id="orchestration" delay={0.62}>
-    <SectionLabel>22 · 接入网关与实时编排</SectionLabel>
+    <SectionLabel>20 · 接入网关与实时编排</SectionLabel>
     <SectionTitle>
       <Wifi className="inline-block w-6 h-6 mr-2 -mt-1" style={{ color: ACCENT }} />
       管子要够稳,状态机要够细——延时全在这里被吃掉

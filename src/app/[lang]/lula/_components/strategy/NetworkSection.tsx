@@ -8,7 +8,7 @@ export function NetworkSection() {
     <>
 {/* 联网策略 · 居家为主 / 离线兜底 */}
         <Card id="network" delay={0.4}>
-          <SectionLabel>12 · 联网策略 · 居家为主 / 离线兜底</SectionLabel>
+          <SectionLabel>10 · 联网策略 · 居家为主 / 离线兜底</SectionLabel>
           <SectionTitle>
             <Wifi className="inline-block w-6 h-6 mr-2 -mt-1" style={{ color: ACCENT }} />
             不要为弱网场景过度设计——主场景仍然在家里

@@ -8,7 +8,7 @@ export function LinkSection() {
         <Card id="link" delay={0.44} dark className="text-white">
           <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.25em] mb-3 text-blue-300">
             <LinkIcon className="w-3.5 h-3.5" />
-            13 · 串联
+            11 · 串联
           </div>
           <h2 className="text-2xl md:text-3xl font-semibold mb-4 leading-tight">
             硬件薄毛利 + <span className="text-blue-300">软商品 / 云续费</span> + <span className="text-blue-300">县代理运营</span> = 商业闭环

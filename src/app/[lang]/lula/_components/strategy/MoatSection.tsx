@@ -8,7 +8,7 @@ export function MoatSection() {
     <>
 {/* 避战 · 做大厂"不屑"的事 */}
         <Card id="moat" delay={0.38}>
-          <SectionLabel>11 · 避战 · 做大厂"不屑"的事</SectionLabel>
+          <SectionLabel>09 · 避战 · 做大厂"不屑"的事</SectionLabel>
           <SectionTitle>
             <ShieldCheck className="inline-block w-6 h-6 mr-2 -mt-1" style={{ color: ACCENT }} />
             把"做 low"当成壁垒——大厂的弱点就是我们的护城河
@@ -47,12 +47,12 @@ export function MoatSection() {
             ))}
           </div>
 
-          {/* 5 条具体路径 */}
+          {/* 4 条具体路径 */}
           <div
             className="text-[11px] font-semibold uppercase tracking-[0.25em] mb-3"
             style={{ color: ACCENT }}
           >
-            5 条具体打法 · 已按"儿童启蒙"过滤
+            4 条具体打法 · 已按"儿童启蒙"过滤
           </div>
           <div className="space-y-3 mb-7">
             {LOW_PATHS.map((p) => (

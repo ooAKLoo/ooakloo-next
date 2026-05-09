@@ -157,7 +157,7 @@ const STATUS_TOKENS: Record<SeqStatus, { dot: string; bg: string; text: string; 
 export function PrereqSection() {
   return (
     <Card id="prereq" delay={0.69}>
-      <SectionLabel>25B · 前置准备 / 资质与上线时序</SectionLabel>
+      <SectionLabel>23B · 前置准备 / 资质与上线时序</SectionLabel>
       <SectionTitle>
         <Building2 className="inline-block w-6 h-6 mr-2 -mt-1" style={{ color: ACCENT }} />
         不踩教育资质，但软著、CCC、商标必须按节奏先动

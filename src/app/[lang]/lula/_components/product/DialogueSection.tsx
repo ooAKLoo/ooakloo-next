@@ -83,7 +83,7 @@ const PEDAGOGY_LOOPS: PedagogyLoop[] = [
 
 export const DialogueSection = () => (
   <Card id="dialogue" delay={0.5}>
-    <SectionLabel>16 · 对话能力 · 分龄人格 + 教育法</SectionLabel>
+    <SectionLabel>14 · 对话能力 · 分龄人格 + 教育法</SectionLabel>
     <SectionTitle>
       <Users className="inline-block w-6 h-6 mr-2 -mt-1" style={{ color: ACCENT }} />
       家长付费的本质——是这两件事,不是 LLM 参数量

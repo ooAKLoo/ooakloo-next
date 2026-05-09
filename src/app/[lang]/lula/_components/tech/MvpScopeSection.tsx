@@ -61,7 +61,7 @@ const PRD_KPIS = [
 
 export const MvpScopeSection = () => (
   <Card id="mvp-scope" delay={0.66}>
-    <SectionLabel>24 · MVP 取舍 + PRD 硬指标</SectionLabel>
+    <SectionLabel>22 · MVP 取舍 + PRD 硬指标</SectionLabel>
     <SectionTitle>
       <Target className="inline-block w-6 h-6 mr-2 -mt-1" style={{ color: ACCENT }} />
       现在做 / 以后做 / 永远不做——再加 8 项可验收的硬指标

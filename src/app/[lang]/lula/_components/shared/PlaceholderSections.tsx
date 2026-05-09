@@ -79,7 +79,7 @@ export function PlaceholderSections({
 }
 
 function BulletText({ text }: { text: string }) {
-  const marker = '详见 26 成本估算';
+  const marker = '详见 24 成本估算';
 
   if (!text.includes(marker)) {
     return <>{text}</>;
