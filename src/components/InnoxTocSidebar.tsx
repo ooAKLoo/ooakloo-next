@@ -11,6 +11,7 @@ export interface TocItem {
   id: string;
   num: string;
   title: string;
+  children?: TocItem[];
 }
 
 export interface TocGroup {
@@ -19,13 +20,20 @@ export interface TocGroup {
   items: TocItem[];
 }
 
+function flattenItems(items: TocItem[]): TocItem[] {
+  return items.flatMap((it) => (it.children ? [it, ...it.children] : [it]));
+}
+
 type Props =
   | { items: TocItem[]; groups?: never }
   | { items?: never; groups: TocGroup[] };
 
 export function InnoxTocSidebar(props: Props) {
   const flat = useMemo<TocItem[]>(
-    () => (props.groups ? props.groups.flatMap((g) => g.items) : (props.items ?? [])),
+    () =>
+      props.groups
+        ? props.groups.flatMap((g) => flattenItems(g.items))
+        : flattenItems(props.items ?? []),
     [props.groups, props.items],
   );
 
@@ -58,7 +66,7 @@ export function InnoxTocSidebar(props: Props) {
 
   const activeItem = flat.find((it) => it.id === active);
   const activeGroupLabel = props.groups?.find((g) =>
-    g.items.some((it) => it.id === active),
+    flattenItems(g.items).some((it) => it.id === active),
   )?.label;
 
   return (
@@ -124,7 +132,9 @@ export function InnoxTocSidebar(props: Props) {
               {props.groups ? (
                 <ul className="space-y-3.5">
                   {props.groups.map((group) => {
-                    const isGroupActive = group.items.some((it) => it.id === active);
+                    const isGroupActive = flattenItems(group.items).some(
+                      (it) => it.id === active,
+                    );
                     return (
                       <li key={group.label}>
                         <div className="px-2.5 mb-1.5 flex items-baseline gap-2">
@@ -143,7 +153,7 @@ export function InnoxTocSidebar(props: Props) {
                         </div>
                         <ul className="space-y-0.5 border-l border-neutral-100 ml-2.5 pl-1.5">
                           {group.items.map((it) => (
-                            <TocLink key={it.id} item={it} active={active === it.id} />
+                            <TocLink key={it.id} item={it} active={active} />
                           ))}
                         </ul>
                       </li>
@@ -152,8 +162,8 @@ export function InnoxTocSidebar(props: Props) {
                 </ul>
               ) : (
                 <ul className="space-y-0.5">
-                  {flat.map((it) => (
-                    <TocLink key={it.id} item={it} active={active === it.id} />
+                  {(props.items ?? []).map((it) => (
+                    <TocLink key={it.id} item={it} active={active} />
                   ))}
                 </ul>
               )}
@@ -165,14 +175,28 @@ export function InnoxTocSidebar(props: Props) {
   );
 }
 
-function TocLink({ item, active }: { item: TocItem; active: boolean }) {
+function TocLink({
+  item,
+  active,
+  depth = 0,
+}: {
+  item: TocItem;
+  active: string;
+  depth?: number;
+}) {
+  const isActive = active === item.id;
+  const childActive = item.children?.some((c) => c.id === active) ?? false;
   return (
     <li>
       <a
         href={`#${item.id}`}
-        className="relative flex items-baseline gap-2.5 px-2.5 py-1.5 rounded-lg text-[12px] leading-snug"
+        className="relative flex items-baseline gap-2.5 px-2.5 py-1.5 rounded-lg leading-snug"
+        style={{
+          paddingLeft: depth > 0 ? `${10 + depth * 12}px` : undefined,
+          fontSize: depth > 0 ? '11.5px' : '12px',
+        }}
       >
-        {active && (
+        {isActive && (
           <motion.span
             layoutId="innox-toc-active"
             className="absolute inset-0 rounded-lg"
@@ -181,18 +205,28 @@ function TocLink({ item, active }: { item: TocItem; active: boolean }) {
           />
         )}
         <span
-          className="relative z-[1] text-[10px] font-semibold tabular-nums shrink-0 transition-colors duration-200"
-          style={{ color: active ? ACCENT : '#9CA3AF' }}
+          className="relative z-[1] font-semibold tabular-nums shrink-0 transition-colors duration-200"
+          style={{
+            color: isActive || childActive ? ACCENT : '#9CA3AF',
+            fontSize: depth > 0 ? '9.5px' : '10px',
+          }}
         >
           {item.num}
         </span>
         <span
           className="relative z-[1] line-clamp-2 transition-colors duration-200"
-          style={{ color: active ? ACCENT : '#525252' }}
+          style={{ color: isActive ? ACCENT : childActive ? '#374151' : '#525252' }}
         >
           {item.title}
         </span>
       </a>
+      {item.children && item.children.length > 0 && (
+        <ul className="space-y-0.5">
+          {item.children.map((child) => (
+            <TocLink key={child.id} item={child} active={active} depth={depth + 1} />
+          ))}
+        </ul>
+      )}
     </li>
   );
 }
