@@ -11,12 +11,12 @@ export function MoatSection() {
           <SectionLabel>09 · 避战 · 做大厂"不屑"的事</SectionLabel>
           <SectionTitle>
             <ShieldCheck className="inline-block w-6 h-6 mr-2 -mt-1" style={{ color: ACCENT }} />
-            把"做 low"当成壁垒——大厂的弱点就是我们的护城河
+            把"大厂不愿做的"当成壁垒——大厂的盲区就是我们的护城河
           </SectionTitle>
           <p className="text-sm text-neutral-600 leading-relaxed mb-6">
             大厂(字节、京东、华为、奥飞)<b className="text-neutral-800">"不能"做某些事</b>，
             本质只有三个原因：数据看不见 / 品牌不能贴 / 渠道下不去。我们要在这三件事上
-            <b className="text-neutral-800">反向用力</b>——目标小、品牌土、渠道脏。
+            <b className="text-neutral-800">反向用力</b>——目标更小、场景更窄、渠道更深。
           </p>
 
           {/* 大厂三不 */}
