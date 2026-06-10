@@ -844,10 +844,10 @@ const CONTENT: Record<Locale, Content> = {
       ],
       fieldHeading: '工程现场:',
       photos: [
-        { src: '/innox/workstation.jpg', caption: 'iOS / macOS 客户端开发现场' },
-        { src: '/innox/engineer-at-work.jpg', caption: '嵌入式调试 · 固件烧写' },
-        { src: '/innox/custom-pcb.jpg', caption: '自研 PCB 板' },
-        { src: '/innox/prototype-sbc.jpg', caption: '早期 SBC 原型' },
+        { src: '/innox/workstation.webp', caption: 'iOS / macOS 客户端开发现场' },
+        { src: '/innox/engineer-at-work.webp', caption: '嵌入式调试 · 固件烧写' },
+        { src: '/innox/custom-pcb.webp', caption: '自研 PCB 板' },
+        { src: '/innox/prototype-sbc.webp', caption: '早期 SBC 原型' },
       ],
     },
     stage: {
@@ -1401,10 +1401,10 @@ const CONTENT: Record<Locale, Content> = {
       ],
       fieldHeading: 'Engineering on the ground:',
       photos: [
-        { src: '/innox/workstation.jpg', caption: 'iOS / macOS client development' },
-        { src: '/innox/engineer-at-work.jpg', caption: 'Firmware debugging · flashing' },
-        { src: '/innox/custom-pcb.jpg', caption: 'In-house PCB' },
-        { src: '/innox/prototype-sbc.jpg', caption: 'Early SBC prototype' },
+        { src: '/innox/workstation.webp', caption: 'iOS / macOS client development' },
+        { src: '/innox/engineer-at-work.webp', caption: 'Firmware debugging · flashing' },
+        { src: '/innox/custom-pcb.webp', caption: 'In-house PCB' },
+        { src: '/innox/prototype-sbc.webp', caption: 'Early SBC prototype' },
       ],
     },
     stage: {

@@ -83,7 +83,7 @@ export function InnoxTocSidebar(props: Props) {
             transition={{ type: 'spring', stiffness: 420, damping: 32 }}
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
-            className="hidden lg:flex fixed top-24 left-5 z-40 items-center gap-2 px-3 py-2 bg-white rounded-full shadow-md hover:shadow-lg"
+            className="hidden 2xl:flex fixed top-24 left-5 z-40 items-center gap-2 px-3 py-2 bg-white rounded-full shadow-md hover:shadow-lg"
             aria-label="展开目录"
           >
             <List size={14} className="text-neutral-600" />
@@ -106,7 +106,7 @@ export function InnoxTocSidebar(props: Props) {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -16 }}
             transition={{ type: 'spring', stiffness: 380, damping: 32 }}
-            className="hidden lg:flex flex-col fixed top-24 left-5 z-40 w-60 max-h-[calc(100vh-7rem)] bg-white rounded-2xl shadow-md overflow-hidden"
+            className="hidden 2xl:flex flex-col fixed top-24 left-5 z-40 w-60 max-h-[calc(100vh-7rem)] bg-white rounded-2xl shadow-md overflow-hidden"
             aria-label="章节目录"
           >
             <div className="flex items-center justify-between px-4 py-3 border-b border-neutral-100">

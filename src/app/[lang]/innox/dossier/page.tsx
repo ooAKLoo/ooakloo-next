@@ -932,10 +932,10 @@ export default function InnoxDossierPage() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-2">
             {[
-              { src: '/innox/workstation.jpg', caption: 'iOS / macOS 客户端开发现场' },
-              { src: '/innox/engineer-at-work.jpg', caption: '嵌入式调试 · 固件烧写' },
-              { src: '/innox/custom-pcb.jpg', caption: '自研 PCB 板' },
-              { src: '/innox/prototype-sbc.jpg', caption: '早期 SBC 原型' },
+              { src: '/innox/workstation.webp', caption: 'iOS / macOS 客户端开发现场' },
+              { src: '/innox/engineer-at-work.webp', caption: '嵌入式调试 · 固件烧写' },
+              { src: '/innox/custom-pcb.webp', caption: '自研 PCB 板' },
+              { src: '/innox/prototype-sbc.webp', caption: '早期 SBC 原型' },
             ].map((img) => (
               <figure key={img.src} className="bg-neutral-50 rounded-2xl overflow-hidden">
                 <div className="relative aspect-square">
