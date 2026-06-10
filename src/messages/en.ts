@@ -17,7 +17,7 @@ export const en = {
   contactInfo: "Contact Info",
   followUs: "Follow Us",
   address: "Address",
-  addressText: "Hongshan District, Wuhan, Hubei Province",
+  addressText: "Chuangzhi Cloud City, Nanshan District, Shenzhen, Guangdong Province",
 
   // About page
   aboutMe: "Hello,",

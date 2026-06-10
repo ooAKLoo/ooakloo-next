@@ -17,7 +17,7 @@ export const cn = {
   contactInfo: "联系方式",
   followUs: "关注我们",
   address: "地址",
-  addressText: "湖北省武汉市洪山区",
+  addressText: "广东省深圳市南山区创智云城",
 
   // About page
   aboutMe: "你好啊，",
