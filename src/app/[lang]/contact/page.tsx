@@ -1,15 +1,34 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Orbit } from '@ooakloowj/orbit';
+import { ArrowRight, Paperclip, X } from 'lucide-react';
 import { type Locale } from '@/lib/i18n';
 import { getMessages } from '@/messages';
+import { sendOrbitFeedback } from '@/lib/orbit-feedback';
 
-// 初始化 Orbit SDK（关闭自动追踪，仅用于反馈收集）
-Orbit.configure({
-  appId: 'com.dongju.ooakloo',
-  autoTrack: false,
-});
+const MAX_ATTACHMENT_SIZE = 15 * 1024 * 1024;
+const ACCEPTED_ATTACHMENT_TYPES = [
+  '.pdf',
+  '.doc',
+  '.docx',
+  '.ppt',
+  '.pptx',
+  '.key',
+  '.pages',
+  '.png',
+  '.jpg',
+  '.jpeg',
+  '.webp',
+  '.zip',
+].join(',');
+
+function formatFileSize(bytes: number): string {
+  if (bytes < 1024 * 1024) {
+    return `${Math.max(1, Math.round(bytes / 1024))}KB`;
+  }
+
+  return `${(bytes / 1024 / 1024).toFixed(1)}MB`;
+}
 
 export default function ContactPage() {
   const [locale, setLocale] = useState<Locale>('en');
@@ -18,8 +37,8 @@ export default function ContactPage() {
     contact: '',
     message: '',
   });
+  const [attachment, setAttachment] = useState<File | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitSuccess, setSubmitSuccess] = useState(false);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -39,6 +58,22 @@ export default function ContactPage() {
     });
   };
 
+  const handleAttachmentChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+
+    if (!file) {
+      return;
+    }
+
+    if (file.size > MAX_ATTACHMENT_SIZE) {
+      alert(messages.attachmentTooLarge);
+      e.target.value = '';
+      return;
+    }
+
+    setAttachment(file);
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -50,14 +85,18 @@ export default function ContactPage() {
     setIsSubmitting(true);
 
     try {
-      // 使用 Orbit SDK 发送反馈
-      await Orbit.sendFeedback({
+      const sent = await sendOrbitFeedback({
         content: `[Join Us]\nName: ${formData.name}\nMessage: ${formData.message}`,
         contact: formData.contact,
+        attachment,
       });
 
-      setSubmitSuccess(true);
+      if (!sent) {
+        throw new Error('Failed to send feedback');
+      }
+
       setFormData({ name: '', contact: '', message: '' });
+      setAttachment(null);
       alert(messages.messageSentAlert);
     } catch {
       alert(locale === 'cn' ? '发送失败，请稍后重试' : 'Failed to send. Please try again later.');
@@ -65,13 +104,6 @@ export default function ContactPage() {
       setIsSubmitting(false);
     }
   };
-
-  // Arrow Icon
-  const ArrowIcon = () => (
-    <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-    </svg>
-  );
 
   return (
     <div className="min-h-screen bg-white">
@@ -143,6 +175,48 @@ export default function ContactPage() {
                 />
               </div>
 
+              <div>
+                <label className="block text-sm text-gray-600 mb-3">
+                  {messages.attachmentOptional}
+                </label>
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+                  <label
+                    htmlFor="contact-attachment"
+                    className="inline-flex w-fit cursor-pointer items-center gap-2 border border-gray-300 px-4 py-2 text-sm text-black transition-colors hover:border-black"
+                  >
+                    <Paperclip className="h-4 w-4" />
+                    <span>{attachment ? messages.changeAttachment : messages.addAttachment}</span>
+                  </label>
+                  <input
+                    id="contact-attachment"
+                    type="file"
+                    accept={ACCEPTED_ATTACHMENT_TYPES}
+                    onChange={handleAttachmentChange}
+                    className="sr-only"
+                  />
+                  <p className="text-sm text-gray-500">{messages.attachmentHint}</p>
+                </div>
+
+                {attachment && (
+                  <div className="mt-3 flex max-w-xl items-center justify-between gap-3 border border-gray-200 px-3 py-2 text-sm text-gray-700">
+                    <div className="flex min-w-0 items-center gap-2">
+                      <Paperclip className="h-4 w-4 flex-shrink-0 text-gray-400" />
+                      <span className="truncate">{attachment.name}</span>
+                      <span className="flex-shrink-0 text-gray-400">{formatFileSize(attachment.size)}</span>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => setAttachment(null)}
+                      className="flex h-7 w-7 flex-shrink-0 items-center justify-center text-gray-400 transition-colors hover:text-black"
+                      aria-label={messages.removeAttachment}
+                      title={messages.removeAttachment}
+                    >
+                      <X className="h-4 w-4" />
+                    </button>
+                  </div>
+                )}
+              </div>
+
               <div className="pt-6 flex justify-end">
                 <button
                   type="submit"
@@ -150,7 +224,7 @@ export default function ContactPage() {
                   className="flex items-center gap-3 px-8 py-3 bg-black text-white hover:bg-gray-900 transition-colors group disabled:bg-gray-400 disabled:cursor-not-allowed"
                 >
                   <span>{isSubmitting ? '...' : messages.sendMessage}</span>
-                  <ArrowIcon />
+                  <ArrowRight className="h-5 w-5" />
                 </button>
               </div>
             </form>

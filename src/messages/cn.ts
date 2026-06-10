@@ -100,6 +100,12 @@ export const cn = {
   selfIntroduction: "自我介绍 *",
   projectDescriptionPlaceholder: "请详细描述您的项目需求、预期目标和时间安排",
   selfIntroductionPlaceholder: "朋友，你好！",
+  attachmentOptional: "附件",
+  attachmentHint: "支持 PDF、Word、PPT、图片或压缩包，最大 15MB",
+  addAttachment: "添加附件",
+  changeAttachment: "更换附件",
+  removeAttachment: "移除附件",
+  attachmentTooLarge: "附件不能超过 15MB",
   sendMessage: "发送信息",
   messageSentAlert: "信息已发送，我们会尽快回复您！",
 

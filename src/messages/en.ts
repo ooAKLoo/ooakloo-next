@@ -100,6 +100,12 @@ export const en = {
   selfIntroduction: "Self Introduction *",
   projectDescriptionPlaceholder: "Please describe your project requirements, expected goals and timeline in detail",
   selfIntroductionPlaceholder: "Hi, friend!",
+  attachmentOptional: "Attachment",
+  attachmentHint: "PDF, Word, PPT, images or ZIP files, up to 15MB",
+  addAttachment: "Add attachment",
+  changeAttachment: "Change attachment",
+  removeAttachment: "Remove attachment",
+  attachmentTooLarge: "Attachment must be 15MB or smaller",
   sendMessage: "Send Message",
   messageSentAlert: "Message sent! We will reply as soon as possible.",
 
