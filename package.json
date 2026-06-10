@@ -10,7 +10,7 @@
     "generate-icons": "node scripts/generate-icons.js"
   },
   "dependencies": {
-    "@ooakloowj/orbit": "^0.1.4",
+    "@ooakloowj/orbit": "file:vendor/ooakloowj-orbit-0.1.6.tgz",
     "lucide-react": "^0.562.0",
     "motion": "^12.38.0",
     "next": "16.1.1",

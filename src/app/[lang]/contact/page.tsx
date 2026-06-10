@@ -2,9 +2,14 @@
 
 import { useState, useEffect } from 'react';
 import { ArrowRight, Paperclip, X } from 'lucide-react';
+import { Orbit } from '@ooakloowj/orbit';
 import { type Locale } from '@/lib/i18n';
 import { getMessages } from '@/messages';
-import { sendOrbitFeedback } from '@/lib/orbit-feedback';
+
+Orbit.configure({
+  appId: 'com.dongju.ooakloo',
+  autoTrack: false,
+});
 
 const MAX_ATTACHMENT_SIZE = 15 * 1024 * 1024;
 const ACCEPTED_ATTACHMENT_TYPES = [
@@ -85,10 +90,10 @@ export default function ContactPage() {
     setIsSubmitting(true);
 
     try {
-      const sent = await sendOrbitFeedback({
+      const sent = await Orbit.sendFeedback({
         content: `[Join Us]\nName: ${formData.name}\nMessage: ${formData.message}`,
         contact: formData.contact,
-        attachment,
+        attachments: attachment ? [attachment] : undefined,
       });
 
       if (!sent) {
