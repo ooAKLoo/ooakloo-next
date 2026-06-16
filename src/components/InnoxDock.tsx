@@ -9,27 +9,13 @@ const DOCS: { href: (lang: Locale) => string; label: string; hint: string }[] = 
   { href: (lang) => `/${lang}/innox`, label: 'Landing', hint: '一页落地概览' },
   { href: (lang) => `/${lang}/innox/pitch`, label: 'Pitch', hint: '完整路演叙事' },
   { href: (lang) => `/${lang}/innox/dossier`, label: 'Dossier', hint: '完整项目档案' },
+  { href: (lang) => `/${lang}/customer#scenes`, label: 'Customer', hint: '客户访问页面' },
 ];
 
 export default function InnoxDock() {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
-  const clicksRef = useRef<number[]>([]);
   const pathname = usePathname();
-
-  const handleTriggerClick = () => {
-    if (open) {
-      setOpen(false);
-      clicksRef.current = [];
-      return;
-    }
-    const now = Date.now();
-    clicksRef.current = [...clicksRef.current, now].filter((t) => now - t <= 1200);
-    if (clicksRef.current.length >= 5) {
-      setOpen(true);
-      clicksRef.current = [];
-    }
-  };
 
   const segs = pathname.split('/');
   const lang: Locale = segs[1] === 'cn' ? 'cn' : 'en';
@@ -54,8 +40,8 @@ export default function InnoxDock() {
     <span ref={ref} className="relative inline-flex items-center align-middle">
       <button
         type="button"
-        aria-label="|"
-        onClick={handleTriggerClick}
+        aria-label="InnoX hidden navigation"
+        onDoubleClick={() => setOpen((value) => !value)}
         className="text-gray-300 select-none cursor-default"
       >
         |

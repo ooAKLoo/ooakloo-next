@@ -19,6 +19,7 @@ export default function Header({ lang, messages }: HeaderProps) {
   const [emoji, setEmoji] = useState(emojis[0]);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const isStandaloneCustomerPage = /^\/[^/]+\/customer(?:\/|$)/.test(pathname);
 
   useEffect(() => {
     let ticking = false;
@@ -44,10 +45,6 @@ export default function Header({ lang, messages }: HeaderProps) {
   }, []);
 
   useEffect(() => {
-    setIsMobileMenuOpen(false);
-  }, [pathname]);
-
-  useEffect(() => {
     document.body.style.overflow = isMobileMenuOpen ? 'hidden' : 'unset';
     return () => { document.body.style.overflow = 'unset'; };
   }, [isMobileMenuOpen]);
@@ -61,6 +58,10 @@ export default function Header({ lang, messages }: HeaderProps) {
     { href: `/${lang}/about`, label: messages.about },
     { href: `/${lang}/contact`, label: messages.contact },
   ];
+
+  if (isStandaloneCustomerPage) {
+    return null;
+  }
 
   return (
     <>
@@ -90,6 +91,7 @@ export default function Header({ lang, messages }: HeaderProps) {
               <Link
                 key={link.href}
                 href={link.href}
+                onClick={() => setIsMobileMenuOpen(false)}
                 className={`
                   relative px-5 py-2 text-sm font-normal tracking-wide
                   transition-all duration-300
@@ -109,6 +111,7 @@ export default function Header({ lang, messages }: HeaderProps) {
           <div className="flex items-center space-x-4">
             <Link
               href={switchLangPath}
+              onClick={() => setIsMobileMenuOpen(false)}
               className="flex items-center space-x-1.5 px-3 py-1.5 text-sm text-gray-600 hover:text-gray-900 transition-all duration-300 rounded-lg hover:bg-gray-50"
             >
               <span className="font-medium">{lang === 'en' ? '中' : 'EN'}</span>
@@ -162,6 +165,7 @@ export default function Header({ lang, messages }: HeaderProps) {
             <Link
               key={link.href}
               href={link.href}
+              onClick={() => setIsMobileMenuOpen(false)}
               className={`px-4 py-3 text-base rounded-lg transition-colors duration-200 ${isActiveLink(link.href) ? 'bg-gray-100 text-gray-900 font-medium' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'}`}
             >
               {link.label}
@@ -172,6 +176,7 @@ export default function Header({ lang, messages }: HeaderProps) {
         <div className="absolute bottom-0 left-0 right-0 p-4 border-t">
           <Link
             href={switchLangPath}
+            onClick={() => setIsMobileMenuOpen(false)}
             className="w-full flex items-center justify-center space-x-2 px-4 py-3 text-base text-gray-600 hover:text-gray-900 transition-all duration-200 rounded-lg hover:bg-gray-50"
           >
             <span className="font-medium">{lang === 'en' ? '切换到中文' : 'Switch to English'}</span>

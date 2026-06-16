@@ -3,6 +3,7 @@
     { "source": "/", "destination": "/en", "permanent": true },
     { "source": "/about", "destination": "/en/about", "permanent": true },
     { "source": "/contact", "destination": "/en/contact", "permanent": true },
+    { "source": "/customer", "destination": "/en/customer", "permanent": true },
     { "source": "/innox", "destination": "/en/innox", "permanent": true },
     { "source": "/innox/pitch", "destination": "/en/innox/pitch", "permanent": true },
     { "source": "/innox/dossier", "destination": "/en/innox/dossier", "permanent": true },

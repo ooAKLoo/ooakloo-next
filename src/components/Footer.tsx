@@ -20,7 +20,12 @@ interface FooterProps {
 export default function Footer({ messages }: FooterProps) {
   const year = new Date().getFullYear();
   const pathname = usePathname();
+  const isStandaloneCustomerPage = /^\/[^/]+\/customer(?:\/|$)/.test(pathname);
   const hideDetails = /^\/[^/]+\/lula(?:\/|$)/.test(pathname);
+
+  if (isStandaloneCustomerPage) {
+    return null;
+  }
 
   return (
     <footer className="w-full bg-white">
