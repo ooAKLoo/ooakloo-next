@@ -14,6 +14,7 @@ export const cn = {
   footerTitle: "不错过任何消息",
   footerDescription: "立即登入，随时获取最新信息。您可以随时取消订阅。",
   footerCopyright: "© {year} akl. 版权所有。",
+  knowledgeReader: "知识阅读",
   contactInfo: "联系方式",
   followUs: "关注我们",
   address: "地址",

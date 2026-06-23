@@ -14,6 +14,7 @@ export const en = {
   footerTitle: "Never miss a beat.",
   footerDescription: "Sign up now to stay in the loop and get access to exclusive offers. You can unsubscribe at any time.",
   footerCopyright: "© {year} akl. All rights reserved.",
+  knowledgeReader: "Knowledge Reader",
   contactInfo: "Contact Info",
   followUs: "Follow Us",
   address: "Address",

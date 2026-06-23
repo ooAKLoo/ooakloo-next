@@ -1,34 +1,52 @@
 import type { Metadata } from 'next';
 import CustomerLanding from './CustomerLanding';
+import { customerCopy } from './_copy';
 
-export async function generateMetadata(): Promise<Metadata> {
-  const title = 'Rova 若行 · 随身携带的随行云';
-  const description =
-    '照片、视频、文件不用上传云端，也不用插线。手机、iPad、电脑连上 Rova 若行，就能随时访问、备份和播放个人资料。';
+type Locale = keyof typeof customerCopy;
+
+interface CustomerPageProps {
+  params: Promise<{ lang: string }>;
+}
+
+function resolveLocale(lang: string): Locale {
+  return lang === 'cn' ? 'cn' : 'en';
+}
+
+export async function generateMetadata({ params }: CustomerPageProps): Promise<Metadata> {
+  const { lang } = await params;
+  const locale = resolveLocale(lang);
+  const copy = customerCopy[locale];
+  const canonical = `/${locale}/customer`;
 
   return {
     title: {
-      absolute: title,
+      absolute: copy.meta.title,
     },
-    description,
-    keywords: ['Rova 若行', '若行', '随行云', '私人云', '个人云存储', '近场共享', '本地存储'],
-    authors: [{ name: 'Rova 若行团队' }],
-    creator: 'Rova 若行',
-    publisher: 'Rova 若行',
+    description: copy.meta.description,
+    keywords: [...copy.meta.keywords],
+    authors: [{ name: copy.meta.author }],
+    creator: copy.meta.siteName,
+    publisher: copy.meta.siteName,
     alternates: {
-      canonical: '/cn/customer',
+      canonical,
+      languages: {
+        en: '/en/customer',
+        'zh-CN': '/cn/customer',
+      },
     },
     openGraph: {
-      title,
-      description,
+      title: copy.meta.title,
+      description: copy.meta.description,
       type: 'website',
-      url: '/cn/customer',
-      siteName: 'Rova 若行',
+      url: canonical,
+      siteName: copy.meta.siteName,
+      locale: locale === 'cn' ? 'zh_CN' : 'en_US',
+      alternateLocale: locale === 'cn' ? 'en_US' : 'zh_CN',
     },
     twitter: {
       card: 'summary',
-      title,
-      description,
+      title: copy.meta.title,
+      description: copy.meta.description,
     },
   };
 }

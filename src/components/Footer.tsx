@@ -111,6 +111,14 @@ export default function Footer({ messages }: FooterProps) {
             <span>{messages.footerCopyright.replace('{year}', String(year))}</span>
             <InnoxDock />
             <a
+              href="https://ooakloo.github.io/knowledge-reader/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-gray-700 transition-colors"
+            >
+              {messages.knowledgeReader}
+            </a>
+            <a
               href="https://beian.miit.gov.cn/"
               target="_blank"
               rel="noopener noreferrer"
