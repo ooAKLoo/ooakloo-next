@@ -32,9 +32,9 @@ export default function Footer({ messages }: FooterProps) {
       {!hideDetails && (
         <div className="border-t border-gray-100">
           <div className="container mx-auto px-6 lg:px-8 py-16">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div className="grid grid-cols-1 gap-12 md:grid-cols-3 md:items-start">
               {/* Contact Info */}
-              <div>
+              <div className="md:justify-self-start">
                 <h3 className="text-xs font-semibold text-gray-900 uppercase tracking-wider mb-6">
                   {messages.contactInfo}
                 </h3>
@@ -52,11 +52,11 @@ export default function Footer({ messages }: FooterProps) {
               </div>
 
               {/* Address */}
-              <div>
+              <div className="md:justify-self-center md:text-center">
                 <h3 className="text-xs font-semibold text-gray-900 uppercase tracking-wider mb-6">
                   {messages.address}
                 </h3>
-                <div className="flex items-start gap-3 text-gray-600">
+                <div className="flex items-start gap-3 text-gray-600 md:justify-center md:text-left">
                   <svg className="w-4 h-4 text-gray-400 mt-0.5" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
@@ -66,11 +66,11 @@ export default function Footer({ messages }: FooterProps) {
               </div>
 
               {/* Social Media */}
-              <div>
+              <div className="md:justify-self-end md:text-right">
                 <h3 className="text-xs font-semibold text-gray-900 uppercase tracking-wider mb-6">
                   {messages.followUs}
                 </h3>
-                <div className="flex flex-wrap gap-1">
+                <div className="flex flex-wrap gap-1 md:justify-end">
                   {socialLinks.map((social) => (
                     <a
                       key={social.name}
