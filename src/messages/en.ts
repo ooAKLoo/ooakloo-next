@@ -7,6 +7,7 @@ export const en = {
 
   // Common
   software: "Software",
+  hardware: "Hardware",
   learnMore: "LEARN MORE",
   Download: "Download",
 

@@ -1,0 +1,14 @@
+[
+  {
+    "url": "/assets/hardware/rova-coming-soon.png",
+    "cnName": "Rova 若行",
+    "enName": "Rova",
+    "cnSlogan": "随身携带的随行云",
+    "enSlogan": "Portable personal cloud, coming soon.",
+    "date": "Coming Soon",
+    "productInfo": "rova",
+    "href": "/customer",
+    "imageMode": "cover",
+    "comingSoon": true
+  }
+]

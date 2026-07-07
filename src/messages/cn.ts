@@ -7,6 +7,7 @@ export const cn = {
 
   // Common
   software: "软件",
+  hardware: "硬件",
   learnMore: "了解更多",
   Download: "下载",
 
