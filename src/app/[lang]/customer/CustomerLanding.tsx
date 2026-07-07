@@ -583,10 +583,9 @@ function CtaFooter({ locale, copy }: { locale: Locale; copy: CustomerCopy }) {
 
             <div className="flex flex-col gap-2 text-sm text-neutral-600">
               <span className="font-medium text-neutral-950">{copy.footer.contactTitle}</span>
-              <a href="mailto:2797208347@qq.com" className="hover:text-neutral-950">
-                2797208347@qq.com
+              <a href="mailto:hello@wojeeo.com" className="hover:text-neutral-950">
+                hello@wojeeo.com
               </a>
-              <span>+86 133 2768 1186</span>
               <span>{copy.footer.address}</span>
               <a href={`/${locale}/contact`} className="mt-1 w-fit text-blue-600 hover:text-blue-700">
                 {copy.footer.contactTeam}
