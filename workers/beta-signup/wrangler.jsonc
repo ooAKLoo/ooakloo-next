@@ -1,0 +1,23 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "rova-beta-signup",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-07-21",
+  "routes": [
+    {
+      "pattern": "waitlist.wojeeo.com",
+      "custom_domain": true
+    }
+  ],
+  "vars": {
+    "LARK_APP_ID": "cli_aad45a0b307a9bc0",
+    "LARK_BASE_TOKEN": "NfuCbbL7RacLnfsIPRycYg4rnbd",
+    "LARK_TABLE_ID": "tblzahpfzpKtYqPw",
+    "LARK_CHAT_ID": "oc_e168059a0d8faf6c4b20571a1f75d84f",
+    "LARK_BASE_URL": "https://xcnlaxdv4ldj.feishu.cn/base/NfuCbbL7RacLnfsIPRycYg4rnbd",
+    "ALLOWED_ORIGINS": "https://wojeeo.com,https://www.wojeeo.com,https://ooakloo.top,https://www.ooakloo.top,https://ooakloo-next.vercel.app"
+  },
+  "observability": {
+    "enabled": true
+  }
+}

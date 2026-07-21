@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "generate-icons": "node scripts/generate-icons.js"
+    "generate-icons": "node scripts/generate-icons.js",
+    "worker:dev": "wrangler dev --config workers/beta-signup/wrangler.jsonc",
+    "worker:deploy": "wrangler deploy --config workers/beta-signup/wrangler.jsonc"
   },
   "dependencies": {
     "@ooakloowj/orbit": "file:vendor/ooakloowj-orbit-0.1.6.tgz",

@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { useParams } from 'next/navigation';
-import { useState, type ComponentType } from 'react';
+import { useState, type ComponentType, type FormEvent } from 'react';
 import {
   Check,
   CloudOff,
@@ -29,6 +29,10 @@ type Locale = 'cn' | 'en';
 type IconComponent = ComponentType<{ className?: string; strokeWidth?: number }>;
 type PlatformIconKey = 'windows' | 'apple' | 'ios' | 'android' | 'web';
 type CompareValue = boolean | 'half';
+
+const betaSignupApiUrl =
+  process.env.NEXT_PUBLIC_BETA_SIGNUP_API_URL ??
+  'https://waitlist.wojeeo.com/v1/beta-signups';
 
 const heroPointIcons: IconComponent[] = [CloudOff, WifiOff, Smartphone];
 const deviceIcons: IconComponent[] = [Smartphone, Tablet, Laptop, Monitor, Tv, Users];
@@ -522,7 +526,40 @@ function CompareCell({
 
 function CtaFooter({ locale, copy }: { locale: Locale; copy: CustomerCopy }) {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const [email, setEmail] = useState('');
+  const [website, setWebsite] = useState('');
+  const [submitError, setSubmitError] = useState<string | null>(null);
+
+  const submitBetaApplication = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (submitting) return;
+
+    setSubmitting(true);
+    setSubmitError(null);
+
+    try {
+      const response = await fetch(betaSignupApiUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: email.trim(),
+          locale,
+          pageUrl: window.location.href,
+          referrer: document.referrer,
+          website,
+        }),
+      });
+
+      if (!response.ok) throw new Error(`Beta signup failed: ${response.status}`);
+      setSubmitted(true);
+    } catch (error) {
+      console.error(error);
+      setSubmitError(copy.cta.submitError);
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   return (
     <>
@@ -541,15 +578,25 @@ function CtaFooter({ locale, copy }: { locale: Locale; copy: CustomerCopy }) {
             </div>
           ) : (
             <form
-              onSubmit={(event) => {
-                event.preventDefault();
-                if (email) setSubmitted(true);
-              }}
+              onSubmit={submitBetaApplication}
+              aria-busy={submitting}
               className="mx-auto mt-8 flex max-w-md flex-col gap-3 sm:flex-row"
             >
+              <label className="pointer-events-none absolute h-px w-px overflow-hidden opacity-0" aria-hidden="true">
+                Website
+                <input
+                  type="text"
+                  name="website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={website}
+                  onChange={(event) => setWebsite(event.target.value)}
+                />
+              </label>
               <input
                 type="email"
                 required
+                autoComplete="email"
                 value={email}
                 onChange={(event) => setEmail(event.target.value)}
                 placeholder={copy.cta.emailPlaceholder}
@@ -557,11 +604,17 @@ function CtaFooter({ locale, copy }: { locale: Locale; copy: CustomerCopy }) {
               />
               <button
                 type="submit"
-                className="rounded-full bg-neutral-950 px-6 py-3 text-sm font-medium text-white transition-opacity hover:opacity-90"
+                disabled={submitting}
+                className="rounded-full bg-neutral-950 px-6 py-3 text-sm font-medium text-white transition-opacity hover:opacity-90 disabled:cursor-wait disabled:opacity-60"
               >
-                {copy.cta.submit}
+                {submitting ? copy.cta.submitting : copy.cta.submit}
               </button>
             </form>
+          )}
+          {submitError && (
+            <p className="mt-3 text-sm text-red-600" role="alert" aria-live="polite">
+              {submitError}
+            </p>
           )}
         </div>
       </section>

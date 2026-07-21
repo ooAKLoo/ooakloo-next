@@ -119,6 +119,8 @@ export const customerCopy = {
       submitted: '已收到，感谢你的关注！',
       emailPlaceholder: '你的邮箱',
       submit: '申请内测',
+      submitting: '提交中…',
+      submitError: '提交失败，请稍后重试。',
     },
     footer: {
       description: '一个可以随身携带的私人云，让你的照片、视频和文件，始终在身边。',
@@ -251,6 +253,8 @@ export const customerCopy = {
       submitted: 'Received. Thanks for your interest!',
       emailPlaceholder: 'Your email',
       submit: 'Apply for beta',
+      submitting: 'Submitting…',
+      submitError: 'Couldn’t submit. Please try again.',
     },
     footer: {
       description: 'A portable private cloud that keeps your photos, videos, and files close at hand.',
