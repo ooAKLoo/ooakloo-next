@@ -1,5 +1,15 @@
 [
   {
+    "url": "/assets/software/diffpuck/app-icon.png",
+    "cnName": "DiffPuck",
+    "enName": "DiffPuck",
+    "cnSlogan": "把刚刚好的代码上下文，拖给任何 AI",
+    "enSlogan": "Hand the right code context to any AI.",
+    "date": "macOS",
+    "productInfo": "diffpuck",
+    "href": "/software/diffpuck"
+  },
+  {
     "url": "/assets/software/oZen.webp",
     "cnName": "偶意",
     "enName": "oZen",

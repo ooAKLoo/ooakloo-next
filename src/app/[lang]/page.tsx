@@ -51,6 +51,7 @@ export default async function HomePage({ params }: PageProps) {
                   productId={item.productInfo}
                   lang={locale}
                   comingSoon={item.comingSoon}
+                  href={item.href ? `/${locale}${item.href}` : undefined}
                 />
               </div>
             ))}
