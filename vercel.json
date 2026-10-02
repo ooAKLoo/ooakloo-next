@@ -7,8 +7,22 @@
     { "source": "/innox", "destination": "/en/innox", "permanent": true },
     { "source": "/innox/pitch", "destination": "/en/innox/pitch", "permanent": true },
     { "source": "/innox/dossier", "destination": "/en/innox/dossier", "permanent": true },
-    { "source": "/lula", "destination": "/en/lula", "permanent": true },
+    { "source": "/paffpaff", "destination": "/en/paffpaff", "permanent": true },
+    { "source": "/lula", "destination": "/en/paffpaff", "permanent": true },
+    { "source": "/lula/:path*", "destination": "/en/paffpaff/:path*", "permanent": true },
+    { "source": "/:lang/lula", "destination": "/:lang/paffpaff", "permanent": true },
+    { "source": "/:lang/lula/:path*", "destination": "/:lang/paffpaff/:path*", "permanent": true },
     { "source": "/products/:id", "destination": "/en/products/:id", "permanent": true }
+  ],
+  "rewrites": [
+    {
+      "source": "/paffpaff/competitors/babycare-westie-gallery/video.mov",
+      "destination": "https://ooakloo.oss-cn-shanghai.aliyuncs.com/lula/competitors/babycare-westie-gallery/video.mov"
+    },
+    {
+      "source": "/paffpaff/competitors/bctoys/video.mov",
+      "destination": "https://ooakloo.oss-cn-shanghai.aliyuncs.com/lula/competitors/bctoys/video.mov"
+    }
   ],
   "headers": [
     {

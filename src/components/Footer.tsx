@@ -21,7 +21,7 @@ export default function Footer({ messages }: FooterProps) {
   const year = new Date().getFullYear();
   const pathname = usePathname();
   const isStandaloneCustomerPage = /^\/[^/]+\/customer(?:\/|$)/.test(pathname);
-  const hideDetails = /^\/[^/]+\/lula(?:\/|$)/.test(pathname);
+  const hideDetails = /^\/[^/]+\/paffpaff(?:\/|$)/.test(pathname);
 
   if (isStandaloneCustomerPage) {
     return null;

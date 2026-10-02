@@ -43,5 +43,5 @@ yarn-error.log*
 next-env.d.ts
 
 # large demo media — hosted on Aliyun OSS instead
-/public/lula/competitors/**/*.mov
-/public/lula/competitors/**/*.mp4
+/public/paffpaff/competitors/**/*.mov
+/public/paffpaff/competitors/**/*.mp4
