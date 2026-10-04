@@ -640,6 +640,9 @@ function CtaFooter({ locale, copy }: { locale: Locale; copy: CustomerCopy }) {
                 hello@wojeeo.com
               </a>
               <span>{copy.footer.address}</span>
+              <a href={`/${locale}/ovita/privacy`} className="hover:text-neutral-950">
+                {locale === 'cn' ? 'oVita 隐私政策' : 'oVita Privacy Policy (Chinese)'}
+              </a>
               <a href={`/${locale}/contact`} className="mt-1 w-fit text-blue-600 hover:text-blue-700">
                 {copy.footer.contactTeam}
               </a>
