@@ -1,5 +1,12 @@
 export const customerCopy = {
   cn: {
+    design: {
+      skipLink: '跳到页面内容', heroNote: '属于你的世界，始终在你身边。',
+      media: ['照片', '视频', '文件'], visualCaption: '你的资料，近在身边', factsLabel: '自由，从这里开始',
+      featuresEyebrow: '为自由而设计', platformEyebrow: '一个资料库，所有设备',
+      stepHint: '连接。打开。出发。', supported: '支持', unsupported: '不支持',
+      ctaEyebrow: '一起，探索下一步', footerNote: '为生活而造，为自由而生。', privacy: '隐私政策（中文）',
+    },
     meta: {
       title: 'Rova 若行 · 随身携带的随行云',
       description:
@@ -27,9 +34,9 @@ export const customerCopy = {
     },
     hero: {
       eyebrow: 'Rova 若行 · 随行云',
-      title: ['随身携带的', '私人云'],
+      title: ['你的世界，', '随你而行。'],
       description:
-        '照片、视频、文件不用上传云端，也不用插线。手机、iPad、电脑连上 Rova 若行，就能随时访问、备份和播放你的个人资料。',
+        '认识 Rova 若行，一朵可以带走的私人云。照片、影片和文件，都在自己身边。带上它，去你想去的地方。',
       points: ['不用上传云端', '不依赖网络', '多设备无线访问'],
       primaryCta: '申请内测',
       secondaryCta: '查看使用场景',
@@ -37,7 +44,7 @@ export const customerCopy = {
     },
     what: {
       eyebrow: '01 · 这是什么',
-      title: '一个放在你身边、可以带走的私人资料库',
+      title: '小小一台。\n装下你的大世界。',
       description:
         'Rova 若行是一台随行云设备，把硬盘、Wi-Fi、电池和智能文件管理做在一个小盒子里。它不像云盘要上传服务器，也不像 NAS 那么复杂，更像一个随身的个人资料库。',
       devices: ['iPhone', 'iPad', 'Mac', 'Windows', '电视 / 投影', '朋友的设备'],
@@ -45,35 +52,35 @@ export const customerCopy = {
     },
     scenes: {
       eyebrow: '02 · 它解决什么麻烦',
-      title: '三个最常见的时刻',
+      title: '生活向前，\n你的世界跟上。',
       description:
-        '网络靠不住、设备多、内容重。云盘和云相册天然不适配，NAS 不便携，移动硬盘交互又太原始。这些时刻，Rova 若行刚好补上。',
+        '从日常的珍贵记忆，到远方的每次探索。把重要的内容带在身边，不让网络决定你的下一步。',
       items: [
         {
           no: '场景一',
           title: '手机空间不够',
           desc: '照片、视频太多，不想一直买 iCloud，也不想为了存储换更大容量的手机。一键把内容备份进 Rova 若行，随时释放手机空间。',
-          img: '/scene-phone.png',
+          img: '/rova/scene-phone.webp',
           alt: '手机连接 Rova 若行备份照片',
         },
         {
           no: '场景二',
           title: '出门拍摄 / 旅行',
           desc: '不带电脑，也能把相机、无人机、手机的素材就地备份到身边。没网也能预览、筛选，绕开微信压缩与上传等待。',
-          img: '/scene-outdoor.png',
+          img: '/rova/scene-outdoor.webp',
           alt: '户外拍摄时用 Rova 若行备份素材',
         },
         {
           no: '场景三',
           title: '多人近场共享',
           desc: '没网也能让朋友、家人、顾客一起访问同一批照片、视频、音乐或资料。一人随身携带，众人无线接入。',
-          img: '/scene-share.png',
+          img: '/rova/scene-share.webp',
           alt: '多人近场共享同一批内容',
         },
       ],
     },
     features: {
-      title: '随行云的核心优势',
+      title: '少一些依赖，\n多一些自由。',
       advantages: [
         { title: '本地私有', desc: '资料放在自己身边，不默认上传到别人的服务器。' },
         { title: '多端访问', desc: '手机、平板、电脑都能连接，跨设备查看同一份资料。' },
@@ -82,13 +89,13 @@ export const customerCopy = {
         { title: '现代浏览', desc: '照片、视频、文件用更自然的界面打开，而不是只面对文件夹。' },
       ],
       mockupAlt: '随行云在笔记本、平板和手机上的界面',
-      platformTitle: '跨平台支持，数据随行',
+      platformTitle: '不同的屏幕，\n同一个世界。',
       platformDesc: '无论使用哪种设备，随行云都能适配，让你的文件在手机、平板和电脑之间自然流转。',
       platforms: ['Windows', 'macOS', 'iOS', 'Android', 'Web'],
     },
     how: {
       eyebrow: '03 · 怎么用',
-      title: '连上就能用，没有学习成本',
+      title: '轻松连接，\n即刻出发。',
       steps: [
         { n: '1', title: '开机带走', desc: '自带电池和 Wi-Fi，放进包里即可。不用插线、不用配置、不用折腾。' },
         { n: '2', title: '连接设备', desc: '手机、iPad、电脑搜索并连接 Rova 若行的近场网络，无需公网、无需登录云账号。' },
@@ -98,7 +105,7 @@ export const customerCopy = {
     },
     compare: {
       eyebrow: '04 · 和云盘 / NAS / 硬盘有什么不同',
-      title: '第四种选择',
+      title: '你的资料，\n有了第四种选择。',
       description:
         '云盘方便，但数据不在自己手里；NAS 私有，但太复杂也不便携；移动硬盘便宜，但手机和平板用起来很麻烦。随行云想做的是放在身边、可以带走、手机电脑都能直接用的私人云。',
       ability: '能力',
@@ -114,7 +121,7 @@ export const customerCopy = {
       ],
     },
     cta: {
-      title: '让个人数据回到你身边',
+      title: '带上你的世界，\n一起出发。',
       description: '更私密、更智能、更便携，也更易用。留下邮箱，第一批内测设备发放时我们会第一时间联系你。',
       submitted: '已收到，感谢你的关注！',
       emailPlaceholder: '你的邮箱',
@@ -133,6 +140,13 @@ export const customerCopy = {
     },
   },
   en: {
+    design: {
+      skipLink: 'Skip to content', heroNote: 'A little device. A lot more freedom.',
+      media: ['Photos', 'Videos', 'Files'], visualCaption: 'Your data. Right here.', factsLabel: 'Made to move',
+      featuresEyebrow: 'Designed for independence', platformEyebrow: 'One library. Every screen.',
+      stepHint: 'Connect. Open. Go.', supported: 'Supported', unsupported: 'Not supported',
+      ctaEyebrow: 'Be part of what comes next', footerNote: 'Built for life. Made to move.', privacy: 'Privacy policy (Chinese)',
+    },
     meta: {
       title: 'Rova · Portable Personal Cloud',
       description:
@@ -160,9 +174,9 @@ export const customerCopy = {
     },
     hero: {
       eyebrow: 'Rova · Portable Cloud',
-      title: ['A private cloud', 'you carry with you'],
+      title: ['Your world.', 'In your hands.'],
       description:
-        'Keep photos, videos, and files off the public cloud and off cables. Connect your phone, iPad, or computer to Rova to access, back up, and play personal data nearby.',
+        'Meet Rova. A private cloud that travels with you. Your photos, films, and files — close at hand, wherever life takes you.',
       points: ['No cloud upload', 'Works offline', 'Wireless multi-device access'],
       primaryCta: 'Apply for beta',
       secondaryCta: 'View use cases',
@@ -170,7 +184,7 @@ export const customerCopy = {
     },
     what: {
       eyebrow: '01 · What it is',
-      title: 'A portable personal library that stays by your side',
+      title: 'A small device.\nA world of possibilities.',
       description:
         'Rova combines a hard drive, Wi-Fi, battery, and intelligent file management in a compact device. It avoids cloud uploads and NAS complexity, giving you a personal data library you can carry.',
       devices: ['iPhone', 'iPad', 'Mac', 'Windows', 'TV / projector', "Friend's device"],
@@ -178,35 +192,35 @@ export const customerCopy = {
     },
     scenes: {
       eyebrow: '02 · What it solves',
-      title: 'Three moments where it fits naturally',
+      title: 'Life moves.\nYour world comes along.',
       description:
-        'Networks fail, devices multiply, and media gets heavy. Cloud albums are not always suitable, NAS is not portable, and external drives are clumsy on phones. Rova fills the gap.',
+        'From everyday memories to faraway adventures. Keep what matters close, without depending on a connection.',
       items: [
         {
           no: 'Use case 1',
-          title: 'Your phone is running out of space',
+          title: 'More memories. More space.',
           desc: 'Back up large photo and video libraries to Rova instead of paying for more iCloud storage or buying a higher-capacity phone. Free up space whenever you need it.',
-          img: '/scene-phone.png',
+          img: '/rova/scene-phone.webp',
           alt: 'A phone backing up photos to Rova',
         },
         {
           no: 'Use case 2',
-          title: 'Shoots and travel',
+          title: 'Off the grid. In the moment.',
           desc: 'Back up camera, drone, and phone footage on location without bringing a laptop. Preview and sort media offline, without compressed chat transfers or upload waits.',
-          img: '/scene-outdoor.png',
+          img: '/rova/scene-outdoor.webp',
           alt: 'Backing up footage to Rova during an outdoor shoot',
         },
         {
           no: 'Use case 3',
-          title: 'Nearby group sharing',
+          title: 'Good things, shared nearby.',
           desc: 'Let friends, family, or customers access the same photos, videos, music, or documents even without internet. One person carries it, everyone nearby connects wirelessly.',
-          img: '/scene-share.png',
+          img: '/rova/scene-share.webp',
           alt: 'People nearby sharing the same content through Rova',
         },
       ],
     },
     features: {
-      title: 'Core advantages of Rova',
+      title: 'Less dependence.\nMore freedom.',
       advantages: [
         { title: 'Local and private', desc: 'Your data stays with you and is not uploaded to someone else’s server by default.' },
         { title: 'Multi-device access', desc: 'Phones, tablets, and computers can all connect to the same personal library.' },
@@ -215,13 +229,13 @@ export const customerCopy = {
         { title: 'Modern browsing', desc: 'Open photos, videos, and files through a natural interface instead of staring at folders.' },
       ],
       mockupAlt: 'Rova interface on a laptop, tablet, and phone',
-      platformTitle: 'Cross-platform support, data that travels with you',
+      platformTitle: 'Different screens.\nThe same world.',
       platformDesc: 'Whatever device you use, Rova adapts so files can flow naturally across your phone, tablet, and computer.',
       platforms: ['Windows', 'macOS', 'iOS', 'Android', 'Web'],
     },
     how: {
       eyebrow: '03 · How it works',
-      title: 'Connect and use it with no learning curve',
+      title: 'Less setup.\nMore living.',
       steps: [
         { n: '1', title: 'Power on and go', desc: 'Built-in battery and Wi-Fi make it bag-ready. No cables, setup, or technical tinkering required.' },
         { n: '2', title: 'Connect devices', desc: 'Find and join Rova’s nearby network from your phone, iPad, or computer. No public internet or cloud account required.' },
@@ -231,7 +245,7 @@ export const customerCopy = {
     },
     compare: {
       eyebrow: '04 · How it differs from cloud drives, NAS, and hard drives',
-      title: 'A fourth option',
+      title: 'A different way\nto keep your world.',
       description:
         'Cloud drives are convenient but your data lives elsewhere. NAS is private but complex and not portable. External drives are affordable but awkward on phones and tablets. Rova is a private cloud you keep nearby, carry with you, and use directly from mobile and desktop devices.',
       ability: 'Capability',
@@ -247,7 +261,7 @@ export const customerCopy = {
       ],
     },
     cta: {
-      title: 'Bring personal data back to your side',
+      title: 'Take your world\nwith you.',
       description:
         'More private, smarter, more portable, and easier to use. Leave your email and we will reach out when the first beta devices are available.',
       submitted: 'Received. Thanks for your interest!',
